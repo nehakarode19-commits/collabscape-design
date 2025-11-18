@@ -22,6 +22,7 @@ import Posts from "./pages/Posts";
 import NotFound from "./pages/NotFound";
 import ChannelDetail from "./pages/ChannelDetail";
 import ConversationDetail from "./pages/ConversationDetail";
+import Notifications from "./pages/Notifications";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/messages" element={<Messages />} />
           <Route path="/channels/:id" element={<ChannelDetail />} />
           <Route path="/conversations/:id" element={<ConversationDetail />} />
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="/directory" element={<Directory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/posts" element={<Posts />} />

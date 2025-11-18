@@ -134,7 +134,12 @@ const Index = () => {
               </div>
             </div>
 
-            <Button variant="ghost" size="icon" className="relative">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="relative"
+              onClick={() => navigate("/notifications")}
+            >
               <Bell className="h-5 w-5" />
               <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-destructive-foreground">
                 3
