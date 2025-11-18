@@ -11,7 +11,7 @@ const EventDetail = () => {
   const { id } = useParams();
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       {/* Header with Back Button */}
       <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
         <div className="container mx-auto px-4 py-4">
@@ -145,7 +145,7 @@ const EventDetail = () => {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 };
 
