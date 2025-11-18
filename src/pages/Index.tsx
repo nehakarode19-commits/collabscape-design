@@ -140,23 +140,6 @@ const Index = () => {
 
         {/* Main Content Area */}
         <main className="px-6 py-8 max-w-7xl mx-auto">
-          {/* Important Announcement */}
-          <section className="mb-8">
-            <Card className="bg-primary/5 border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 shrink-0">
-                    <announcement.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-foreground mb-2 text-lg">{announcement.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{announcement.message}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
           {/* Explore Section */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-foreground mb-6">Explore</h2>
@@ -179,6 +162,23 @@ const Index = () => {
                 </Card>
               ))}
             </div>
+          </section>
+
+          {/* Important Announcement */}
+          <section className="mb-8">
+            <Card className="bg-primary/5 border-primary/20">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 shrink-0">
+                    <announcement.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-foreground mb-2 text-lg">{announcement.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{announcement.message}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </section>
 
           {/* Community Feed */}
