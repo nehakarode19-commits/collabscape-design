@@ -23,6 +23,7 @@ import NotFound from "./pages/NotFound";
 import ChannelDetail from "./pages/ChannelDetail";
 import ConversationDetail from "./pages/ConversationDetail";
 import Notifications from "./pages/Notifications";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/directory" element={<Directory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/posts" element={<Posts />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
