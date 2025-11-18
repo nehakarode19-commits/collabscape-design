@@ -5,6 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import donation1 from "@/assets/donation-1.jpg";
 
 const DonationDetail = () => {
   const navigate = useNavigate();
@@ -42,7 +43,13 @@ const DonationDetail = () => {
       </header>
 
       <main className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
-        <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-6" />
+        <div className="aspect-video rounded-lg mb-6 overflow-hidden">
+          <img 
+            src={donation1} 
+            alt={campaign.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
         
         <h1 className="text-3xl font-bold mb-4">{campaign.title}</h1>
         

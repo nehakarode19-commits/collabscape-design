@@ -43,7 +43,7 @@ const Chapters = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-bold text-primary md:text-xl">Chapters</h1>
+              <h1 className="text-lg font-bold text-primary md:text-xl">Organization</h1>
               <p className="text-xs text-muted-foreground">Connect with local chapters</p>
             </div>
           </div>

@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useNavigate } from "react-router-dom";
+import donation1 from "@/assets/donation-1.jpg";
+import donation2 from "@/assets/donation-2.jpg";
+import donation3 from "@/assets/donation-3.jpg";
 
 const Donations = () => {
   const navigate = useNavigate();
@@ -15,6 +18,7 @@ const Donations = () => {
       raised: 12500,
       goal: 20000,
       donors: 87,
+      image: donation1,
     },
     {
       id: 2,
@@ -23,6 +27,7 @@ const Donations = () => {
       raised: 8300,
       goal: 15000,
       donors: 52,
+      image: donation2,
     },
     {
       id: 3,
@@ -31,6 +36,7 @@ const Donations = () => {
       raised: 15700,
       goal: 18000,
       donors: 103,
+      image: donation3,
     },
   ];
 
@@ -57,9 +63,16 @@ const Donations = () => {
             return (
               <Card 
                 key={campaign.id}
-                className="cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
+                className="cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1 overflow-hidden"
                 onClick={() => navigate(`/donations/${campaign.id}`)}
               >
+                <div className="aspect-video w-full overflow-hidden">
+                  <img 
+                    src={campaign.image} 
+                    alt={campaign.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-lg">{campaign.title}</CardTitle>
                   <CardDescription>{campaign.description}</CardDescription>

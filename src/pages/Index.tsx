@@ -1,44 +1,56 @@
-import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Menu, Home } from "lucide-react";
+import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Menu, Home, Handshake, BookOpen, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { MenuNavLink } from "@/components/MenuNavLink";
 import cityImage1 from "@/assets/city-1.jpg";
 import cityImage2 from "@/assets/city-2.jpg";
+import event1 from "@/assets/event-1.jpg";
+import event2 from "@/assets/event-2.jpg";
+import event3 from "@/assets/event-3.jpg";
 
 const Index = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const features = [
     {
-      title: "Chapters",
+      title: "Organization",
       description: "Connect with local chapters in your area",
       icon: Users,
       color: "primary",
+      href: "/chapters",
     },
     {
       title: "Events",
       description: "Discover and join upcoming city events",
       icon: Calendar,
       color: "secondary",
+      href: "/events",
     },
     {
       title: "Donations",
       description: "Support causes that matter to your community",
       icon: Heart,
       color: "accent",
+      href: "/donations",
     },
     {
       title: "Volunteering",
       description: "Make a difference through volunteer opportunities",
       icon: HandHeart,
       color: "navy",
+      href: "/volunteering",
     },
     {
       title: "Sponsorship",
       description: "Partner with us to create lasting impact",
       icon: Award,
       color: "deep",
+      href: "/sponsorship",
     },
   ];
 
@@ -85,9 +97,24 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-              </Button>
+              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-64">
+                  <nav className="flex flex-col gap-2 mt-8">
+                    <MenuNavLink to="/" icon={Home} label="Home" />
+                    <MenuNavLink to="/posts" icon={BookOpen} label="Posts" />
+                    <MenuNavLink to="/events" icon={Calendar} label="Events" />
+                    <MenuNavLink to="/donations" icon={Heart} label="Donations" />
+                    <MenuNavLink to="/volunteering" icon={Handshake} label="Volunteering" />
+                    <MenuNavLink to="/messages" icon={MessageSquare} label="Messages" />
+                    <MenuNavLink to="/directory" icon={Users} label="Directory" />
+                  </nav>
+                </SheetContent>
+              </Sheet>
               <div>
                 <h1 className="text-lg font-bold text-primary md:text-xl">City Collab</h1>
                 <p className="text-xs text-muted-foreground">Your City</p>
@@ -123,6 +150,20 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        {/* Desktop Navigation Menu */}
+        <nav className="hidden md:block border-t border-border">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-1 py-2">
+              <MenuNavLink to="/" icon={Home} label="Home" />
+              <MenuNavLink to="/events" icon={Calendar} label="Events" />
+              <MenuNavLink to="/messages" icon={MessageSquare} label="Messages" />
+              <MenuNavLink to="/messages" icon={MessageSquare} label="Channel" />
+              <MenuNavLink to="/directory" icon={Users} label="Directory" />
+              <MenuNavLink to="/profile" icon={User} label="Profile" />
+            </div>
+          </div>
+        </nav>
       </header>
 
       <main className="container mx-auto px-4 py-6 md:py-8">
@@ -134,7 +175,7 @@ const Index = () => {
               <Card 
                 key={feature.title} 
                 className="group cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
-                onClick={() => navigate(`/${feature.title.toLowerCase()}`)}
+                onClick={() => navigate(feature.href)}
               >
                 <CardHeader>
                   <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
