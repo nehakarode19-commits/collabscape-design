@@ -1,10 +1,14 @@
-import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Menu } from "lucide-react";
+import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Menu, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
+import cityImage1 from "@/assets/city-1.jpg";
+import cityImage2 from "@/assets/city-2.jpg";
 
 const Index = () => {
+  const navigate = useNavigate();
   const features = [
     {
       title: "Chapters",
@@ -61,6 +65,7 @@ const Index = () => {
       likes: 124,
       comments: 18,
       time: "3 hours ago",
+      image: cityImage2,
     },
     {
       author: "Michael Chen",
@@ -69,6 +74,7 @@ const Index = () => {
       likes: 89,
       comments: 12,
       time: "5 hours ago",
+      image: cityImage1,
     },
   ];
 
@@ -128,6 +134,7 @@ const Index = () => {
               <Card 
                 key={feature.title} 
                 className="group cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
+                onClick={() => navigate(`/${feature.title.toLowerCase()}`)}
               >
                 <CardHeader>
                   <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
@@ -173,7 +180,12 @@ const Index = () => {
 
             {/* Posts Feed */}
             <section>
-              <h2 className="mb-4 text-xl font-bold text-foreground">City Feed</h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-foreground">City Feed</h2>
+                <Button variant="ghost" size="sm" onClick={() => navigate("/posts")}>
+                  View All
+                </Button>
+              </div>
               <div className="space-y-4">
                 {posts.map((post, index) => (
                   <Card key={index} className="transition-shadow hover:shadow-md">
@@ -190,6 +202,13 @@ const Index = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="mb-4 text-sm text-foreground">{post.content}</p>
+                      {post.image && (
+                        <img 
+                          src={post.image} 
+                          alt="Community activity" 
+                          className="w-full rounded-lg mb-4 object-cover max-h-48"
+                        />
+                      )}
                       <div className="flex items-center gap-6 text-sm text-muted-foreground">
                         <button className="flex items-center gap-1 hover:text-primary transition-colors">
                           <Heart className="h-4 w-4" />
@@ -243,23 +262,48 @@ const Index = () => {
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-card md:hidden">
         <div className="grid grid-cols-5 gap-1 p-2">
-          <Button variant="ghost" size="sm" className="flex flex-col gap-1 h-auto py-2">
-            <Users className="h-5 w-5" />
-            <span className="text-[10px]">Home</span>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex flex-col gap-1 h-auto py-2 bg-primary/10"
+            onClick={() => navigate("/")}
+          >
+            <Home className="h-5 w-5 text-primary" />
+            <span className="text-[10px] text-primary font-medium">Home</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col gap-1 h-auto py-2">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex flex-col gap-1 h-auto py-2"
+            onClick={() => navigate("/events")}
+          >
             <Calendar className="h-5 w-5" />
             <span className="text-[10px]">Events</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col gap-1 h-auto py-2">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex flex-col gap-1 h-auto py-2"
+            onClick={() => navigate("/messages")}
+          >
             <MessageSquare className="h-5 w-5" />
             <span className="text-[10px]">Messages</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col gap-1 h-auto py-2">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex flex-col gap-1 h-auto py-2"
+            onClick={() => navigate("/directory")}
+          >
             <Users className="h-5 w-5" />
             <span className="text-[10px]">Directory</span>
           </Button>
-          <Button variant="ghost" size="sm" className="flex flex-col gap-1 h-auto py-2">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex flex-col gap-1 h-auto py-2"
+            onClick={() => navigate("/profile")}
+          >
             <Users className="h-5 w-5" />
             <span className="text-[10px]">Profile</span>
           </Button>
