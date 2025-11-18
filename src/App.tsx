@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "@/components/Layout";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Chapters from "./pages/Chapters";
@@ -35,33 +34,31 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/chapters" element={<Chapters />} />
-            <Route path="/chapters/:id" element={<ChapterDetail />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/:id" element={<EventDetail />} />
-            <Route path="/donations" element={<Donations />} />
-            <Route path="/donations/:id" element={<DonationDetail />} />
-            <Route path="/volunteering" element={<Volunteering />} />
-            <Route path="/volunteering/:id" element={<VolunteeringDetail />} />
-            <Route path="/sponsorship" element={<Sponsorship />} />
-            <Route path="/sponsorship/:id" element={<SponsorshipDetail />} />
-            <Route path="/messages" element={<Messages />} />
-            <Route path="/channels" element={<Channels />} />
-            <Route path="/channels/:id" element={<ChannelDetail />} />
-            <Route path="/conversations/:id" element={<ConversationDetail />} />
-            <Route path="/notifications" element={<Notifications />} />
-            <Route path="/directory" element={<Directory />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/posts" element={<Posts />} />
-            <Route path="/settings" element={<Settings />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/chapters" element={<Chapters />} />
+          <Route path="/chapters/:id" element={<ChapterDetail />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+          <Route path="/donations" element={<Donations />} />
+          <Route path="/donations/:id" element={<DonationDetail />} />
+          <Route path="/volunteering" element={<Volunteering />} />
+          <Route path="/volunteering/:id" element={<VolunteeringDetail />} />
+          <Route path="/sponsorship" element={<Sponsorship />} />
+          <Route path="/sponsorship/:id" element={<SponsorshipDetail />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/channels" element={<Channels />} />
+          <Route path="/channels/:id" element={<ChannelDetail />} />
+          <Route path="/conversations/:id" element={<ConversationDetail />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/directory" element={<Directory />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/settings" element={<Settings />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
