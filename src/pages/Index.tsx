@@ -140,6 +140,23 @@ const Index = () => {
 
         {/* Main Content Area */}
         <main className="px-6 py-8 max-w-7xl mx-auto">
+          {/* Important Announcement */}
+          <section className="mb-8">
+            <Card className="bg-primary/5 border-primary/20">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 shrink-0">
+                    <announcement.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-foreground mb-2 text-lg">{announcement.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{announcement.message}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
           {/* Explore Section */}
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-foreground mb-6">Explore</h2>
@@ -174,21 +191,6 @@ const Index = () => {
             </div>
 
             <div className="space-y-4 max-w-4xl">
-              {/* Important Announcement */}
-              <Card className="bg-muted/30">
-                <CardContent className="p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                      <announcement.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-foreground mb-1">{announcement.title}</h3>
-                      <p className="text-sm text-muted-foreground">{announcement.message}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
               {/* Post */}
               <Card>
                 <CardHeader>
