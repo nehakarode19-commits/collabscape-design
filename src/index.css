@@ -8,35 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* City Collab Brand Colors - Blue Palette */
+    --background: 0 0% 98%;
+    --foreground: 203 100% 25%;
+    
+    /* Primary - Deep Blue #01447d */
+    --primary: 203 98% 25%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Dark Blue #02457c */
+    --secondary: 203 97% 25%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent - Bright Blue #00457c */
+    --accent: 203 100% 24%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Navy Blue #00407f */
+    --navy: 203 100% 25%;
+    
+    /* Very Dark Blue #00447f */
+    --deep: 203 100% 25%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 203 100% 25%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 203 100% 25%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 203 30% 45%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 203 98% 25%;
+    
+    --radius: 0.75rem;
+    
+    /* Design System Extensions */
+    --gradient-primary: linear-gradient(135deg, hsl(203 98% 25%), hsl(203 100% 24%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --shadow-card: 0 2px 8px -2px hsl(203 98% 25% / 0.08);
+    --shadow-elevated: 0 8px 24px -4px hsl(203 98% 25% / 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +73,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 203 100% 8%;
+    --foreground: 0 0% 98%;
+    
+    --primary: 203 100% 24%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 203 97% 25%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 203 100% 24%;
+    --accent-foreground: 0 0% 100%;
+    
+    --card: 203 100% 12%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 203 100% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    --muted: 203 50% 20%;
+    --muted-foreground: 210 40% 70%;
+    
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 203 50% 20%;
+    --input: 203 50% 20%;
+    --ring: 203 100% 40%;
+    
+    --sidebar-background: 203 100% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 203 100% 24%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 203 50% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 203 50% 20%;
+    --sidebar-ring: 203 100% 40%;
   }
 }
 
@@ -101,5 +119,6 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
