@@ -94,6 +94,7 @@ const Messages = () => {
               <Card 
                 key={chat.id}
                 className="p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                onClick={() => navigate(`/conversations/${chat.id}`)}
               >
                 <div className="flex items-start gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-medium shrink-0">
@@ -121,6 +122,7 @@ const Messages = () => {
               <Card 
                 key={channel.id}
                 className="p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+                onClick={() => navigate(`/channels/${channel.id}`)}
               >
                 <div className="flex items-start gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-secondary-foreground shrink-0">

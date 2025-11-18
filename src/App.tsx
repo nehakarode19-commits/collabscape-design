@@ -20,6 +20,8 @@ import Directory from "./pages/Directory";
 import Profile from "./pages/Profile";
 import Posts from "./pages/Posts";
 import NotFound from "./pages/NotFound";
+import ChannelDetail from "./pages/ChannelDetail";
+import ConversationDetail from "./pages/ConversationDetail";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
           <Route path="/sponsorship" element={<Sponsorship />} />
           <Route path="/sponsorship/:id" element={<SponsorshipDetail />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/channels/:id" element={<ChannelDetail />} />
+          <Route path="/conversations/:id" element={<ConversationDetail />} />
           <Route path="/directory" element={<Directory />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/posts" element={<Posts />} />
