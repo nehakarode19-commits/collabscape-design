@@ -1,4 +1,4 @@
-import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Home, BookOpen, User, Settings, Hash } from "lucide-react";
+import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Home, BookOpen, User, Settings, Hash, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -45,7 +45,7 @@ const Index = () => {
   const announcement = {
     title: "Important: City Hall Meeting",
     message: "Join us this Thursday at 7 PM for our monthly community meeting. Topics include upcoming projects and budget discussions.",
-    icon: MessageSquare,
+    icon: Megaphone,
   };
 
   const post = {
