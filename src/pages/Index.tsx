@@ -132,7 +132,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 flex items-center justify-center">
             <div className="text-center text-white px-4">
               <h1 className="text-3xl lg:text-5xl font-bold mb-3">Welcome to CiviCircle</h1>
-              <p className="text-base lg:text-lg text-white/90">Connect, collaborate, and make a difference in your community</p>
+              <p className="text-base lg:text-lg text-white/90">Where Public Servants Shine!</p>
             </div>
           </div>
         </section>
