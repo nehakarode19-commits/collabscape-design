@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Users, Clock } from "lucide-react";
+import { Calendar, MapPin, Users, Clock, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +12,20 @@ const EventDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Header with Back Button */}
+      <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="icon" onClick={() => navigate("/events")}>
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+            <div>
+              <h1 className="text-lg font-bold text-primary">Event Details</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Image */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <img 
