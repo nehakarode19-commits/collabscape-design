@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -164,49 +165,72 @@ const Directory = () => {
       </header>
 
       <main className="container mx-auto px-4 py-6 md:py-8">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredMembers.map((member) => (
-            <Card
-              key={member.id}
-              className="cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
-              onClick={() => navigate(`/messages`)}
-            >
-              <CardHeader className="text-center pb-3">
-                <div className="flex justify-center mb-3">
-                  <Avatar className="h-20 w-20">
-                    <AvatarImage src={member.avatar} alt={member.name} />
-                    <AvatarFallback className="bg-primary/10 text-primary text-lg">
-                      {getInitials(member.name)}
-                    </AvatarFallback>
-                  </Avatar>
-                </div>
-                <CardTitle className="text-base">{member.name}</CardTitle>
-                <p className="text-sm text-muted-foreground">{member.role}</p>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 flex-shrink-0" />
-                  <span className="truncate">{member.location}</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Mail className="h-4 w-4 flex-shrink-0" />
-                  <span className="truncate">{member.email}</span>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {member.skills.slice(0, 2).map((skill) => (
-                    <Badge key={skill} variant="secondary" className="text-xs">
-                      {skill}
-                    </Badge>
+        <Card>
+          <CardContent className="p-0">
+            <div className="rounded-md border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-[250px]">Member</TableHead>
+                    <TableHead>Role</TableHead>
+                    <TableHead>Location</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Skills</TableHead>
+                    <TableHead className="text-right">Action</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filteredMembers.map((member) => (
+                    <TableRow key={member.id}>
+                      <TableCell>
+                        <div className="flex items-center gap-3">
+                          <Avatar className="h-10 w-10">
+                            <AvatarImage src={member.avatar} alt={member.name} />
+                            <AvatarFallback className="bg-primary/10 text-primary">
+                              {getInitials(member.name)}
+                            </AvatarFallback>
+                          </Avatar>
+                          <span className="font-medium">{member.name}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>{member.role}</TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-1 text-muted-foreground">
+                          <MapPin className="h-4 w-4" />
+                          <span>{member.location}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-1 text-muted-foreground">
+                          <Mail className="h-4 w-4" />
+                          <span className="text-sm">{member.email}</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex flex-wrap gap-1">
+                          {member.skills.map((skill) => (
+                            <Badge key={skill} variant="secondary" className="text-xs">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button 
+                          size="sm" 
+                          onClick={() => navigate(`/messages`)}
+                        >
+                          <Mail className="h-4 w-4 mr-2" />
+                          Message
+                        </Button>
+                      </TableCell>
+                    </TableRow>
                   ))}
-                </div>
-                <Button className="w-full" size="sm">
-                  <Mail className="h-4 w-4 mr-2" />
-                  Message
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                </TableBody>
+              </Table>
+            </div>
+          </CardContent>
+        </Card>
 
         {filteredMembers.length === 0 && (
           <div className="text-center py-12">
