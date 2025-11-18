@@ -1,4 +1,4 @@
-import { Search, Hash } from "lucide-react";
+import { Search, Hash, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -38,9 +38,14 @@ const Channels = () => {
     <div className="min-h-screen bg-background pb-20 md:pb-8">
       <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
         <div className="container mx-auto px-4 py-4">
-          <div>
-            <h1 className="text-lg font-bold text-primary md:text-xl">Channels</h1>
-            <p className="text-xs text-muted-foreground">Group conversations and topics</p>
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+            <div>
+              <h1 className="text-lg font-bold text-primary md:text-xl">Channels</h1>
+              <p className="text-xs text-muted-foreground">Group conversations and topics</p>
+            </div>
           </div>
         </div>
       </header>
