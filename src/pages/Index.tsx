@@ -12,6 +12,7 @@ import cityImage2 from "@/assets/city-2.jpg";
 import event1 from "@/assets/event-1.jpg";
 import event2 from "@/assets/event-2.jpg";
 import event3 from "@/assets/event-3.jpg";
+import civiCircleLogo from "@/assets/civicircle-logo.jpg";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -115,12 +116,14 @@ const Index = () => {
                   </nav>
                 </SheetContent>
               </Sheet>
-              <div>
-                <h1 className="text-lg font-bold text-primary md:text-xl">City Collab</h1>
-                <p className="text-xs text-muted-foreground">Your City</p>
+              <div className="flex items-center gap-3">
+                <img src={civiCircleLogo} alt="CiviCircle Logo" className="h-10 w-10 object-contain" />
+                <div>
+                  <h1 className="text-lg font-bold text-primary md:text-xl">CiviCircle</h1>
+                  <p className="text-xs text-muted-foreground">Where Public Servants Shine!</p>
+                </div>
               </div>
             </div>
-            
             <div className="hidden flex-1 max-w-md md:block">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
