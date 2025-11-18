@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Chapters from "./pages/Chapters";
 import ChapterDetail from "./pages/ChapterDetail";
+import Channels from "./pages/Channels";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import Donations from "./pages/Donations";
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/sponsorship" element={<Sponsorship />} />
           <Route path="/sponsorship/:id" element={<SponsorshipDetail />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/channels" element={<Channels />} />
           <Route path="/channels/:id" element={<ChannelDetail />} />
           <Route path="/conversations/:id" element={<ConversationDetail />} />
           <Route path="/notifications" element={<Notifications />} />
