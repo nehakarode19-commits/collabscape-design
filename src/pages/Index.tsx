@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { MenuNavLink } from "@/components/MenuNavLink";
-import cityImage2 from "@/assets/city-2.jpg";
+import heroSkyline from "@/assets/hero-city-skyline.jpg";
 import civiCircleLogo from "@/assets/civicircle-logo.jpg";
 
 const Index = () => {
@@ -125,8 +125,8 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative h-64 lg:h-80 overflow-hidden">
           <img
-            src={cityImage2}
-            alt="City skyline"
+            src={heroSkyline}
+            alt="U.S.A. city skyline at sunset"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 flex items-center justify-center">
