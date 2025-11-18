@@ -17,7 +17,7 @@ const ChapterDetail = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-bold text-primary md:text-xl">Downtown Chapter</h1>
+              <h1 className="text-lg font-bold text-primary md:text-xl">Downtown Organization</h1>
               <p className="text-xs text-muted-foreground">Downtown District</p>
             </div>
           </div>
@@ -29,7 +29,7 @@ const ChapterDetail = () => {
           <CardHeader>
             <div className="flex items-start justify-between">
               <div>
-                <CardTitle className="text-2xl mb-2">Downtown Chapter</CardTitle>
+                <CardTitle className="text-2xl mb-2">Downtown Organization</CardTitle>
                 <CardDescription className="flex items-center gap-2 mb-4">
                   <MapPin className="h-4 w-4" />
                   Downtown District
@@ -78,7 +78,7 @@ const ChapterDetail = () => {
             </div>
 
             <div className="flex gap-3">
-              <Button className="flex-1">Join Chapter</Button>
+              <Button className="flex-1">Join Organization</Button>
               <Button variant="outline">Contact Lead</Button>
             </div>
           </CardContent>

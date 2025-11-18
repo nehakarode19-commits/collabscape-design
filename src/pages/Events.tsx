@@ -4,6 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useNavigate } from "react-router-dom";
+import event1 from "@/assets/event-1.jpg";
+import event2 from "@/assets/event-2.jpg";
+import event3 from "@/assets/event-3.jpg";
 
 const Events = () => {
   const navigate = useNavigate();
@@ -17,6 +20,7 @@ const Events = () => {
       location: "Central Park",
       attendees: 45,
       category: "Volunteering",
+      image: event3,
     },
     {
       id: 2,
@@ -26,6 +30,7 @@ const Events = () => {
       location: "City Hall",
       attendees: 120,
       category: "Fundraising",
+      image: event1,
     },
     {
       id: 3,
@@ -35,6 +40,7 @@ const Events = () => {
       location: "Innovation Center",
       attendees: 30,
       category: "Education",
+      image: event2,
     },
   ];
 
@@ -47,6 +53,7 @@ const Events = () => {
       location: "Community Center",
       attendees: 67,
       category: "Charity",
+      image: event2,
     },
   ];
 
@@ -78,9 +85,16 @@ const Events = () => {
               {upcomingEvents.map((event) => (
                 <Card 
                   key={event.id}
-                  className="cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
+                  className="cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1 overflow-hidden"
                   onClick={() => navigate(`/events/${event.id}`)}
                 >
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img 
+                      src={event.image} 
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <CardHeader>
                     <div className="mb-2">
                       <Badge variant="secondary">{event.category}</Badge>
@@ -117,9 +131,16 @@ const Events = () => {
               {pastEvents.map((event) => (
                 <Card 
                   key={event.id}
-                  className="opacity-75 cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
+                  className="opacity-75 cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1 overflow-hidden"
                   onClick={() => navigate(`/events/${event.id}`)}
                 >
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img 
+                      src={event.image} 
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <CardHeader>
                     <div className="mb-2">
                       <Badge variant="outline">{event.category}</Badge>

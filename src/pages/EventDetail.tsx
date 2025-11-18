@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate, useParams } from "react-router-dom";
+import event3 from "@/assets/event-3.jpg";
 
 const EventDetail = () => {
   const navigate = useNavigate();
@@ -30,7 +31,13 @@ const EventDetail = () => {
 
       <main className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
         <div className="mb-6">
-          <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-4" />
+          <div className="aspect-video rounded-lg mb-4 overflow-hidden">
+            <img 
+              src={event3} 
+              alt="Community Cleanup"
+              className="w-full h-full object-cover"
+            />
+          </div>
           <Badge variant="secondary" className="mb-3">Volunteering</Badge>
           <h1 className="text-3xl font-bold mb-4">Community Cleanup</h1>
           
