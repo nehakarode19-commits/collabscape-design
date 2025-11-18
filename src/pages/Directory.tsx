@@ -1,12 +1,24 @@
 import { ArrowLeft, Search, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import sarahJohnson from "@/assets/members/sarah-johnson.jpg";
+import michaelChen from "@/assets/members/michael-chen.jpg";
+import emilyRodriguez from "@/assets/members/emily-rodriguez.jpg";
+import davidKim from "@/assets/members/david-kim.jpg";
+import lisaAnderson from "@/assets/members/lisa-anderson.jpg";
+import jamesWilson from "@/assets/members/james-wilson.jpg";
+import mariaGarcia from "@/assets/members/maria-garcia.jpg";
+import robertTaylor from "@/assets/members/robert-taylor.jpg";
+import jenniferLee from "@/assets/members/jennifer-lee.jpg";
+import christopherBrown from "@/assets/members/christopher-brown.jpg";
+import amandaWhite from "@/assets/members/amanda-white.jpg";
+import danielMartinez from "@/assets/members/daniel-martinez.jpg";
 
 const Directory = () => {
   const navigate = useNavigate();
@@ -19,7 +31,7 @@ const Directory = () => {
       role: "Chapter Lead",
       location: "Downtown District",
       email: "sarah.j@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+      avatar: sarahJohnson,
       skills: ["Leadership", "Community"],
     },
     {
@@ -28,7 +40,7 @@ const Directory = () => {
       role: "Community Member",
       location: "North Valley",
       email: "michael.c@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
+      avatar: michaelChen,
       skills: ["Education", "Volunteering"],
     },
     {
@@ -37,7 +49,7 @@ const Directory = () => {
       role: "Volunteer Coordinator",
       location: "East District",
       email: "emily.r@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily",
+      avatar: emilyRodriguez,
       skills: ["Coordination", "Events"],
     },
     {
@@ -46,7 +58,7 @@ const Directory = () => {
       role: "Event Organizer",
       location: "Downtown District",
       email: "david.k@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+      avatar: davidKim,
       skills: ["Planning", "Logistics"],
     },
     {
@@ -55,7 +67,7 @@ const Directory = () => {
       role: "Community Member",
       location: "West Side",
       email: "lisa.a@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
+      avatar: lisaAnderson,
       skills: ["Fundraising", "Marketing"],
     },
     {
@@ -64,7 +76,7 @@ const Directory = () => {
       role: "Donation Manager",
       location: "South District",
       email: "james.w@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=James",
+      avatar: jamesWilson,
       skills: ["Finance", "Outreach"],
     },
     {
@@ -73,7 +85,7 @@ const Directory = () => {
       role: "Communications Lead",
       location: "Central Area",
       email: "maria.g@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
+      avatar: mariaGarcia,
       skills: ["Social Media", "PR"],
     },
     {
@@ -82,7 +94,7 @@ const Directory = () => {
       role: "Technology Lead",
       location: "Tech District",
       email: "robert.t@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
+      avatar: robertTaylor,
       skills: ["IT", "Development"],
     },
     {
@@ -91,7 +103,7 @@ const Directory = () => {
       role: "Youth Program Director",
       location: "Education Zone",
       email: "jennifer.l@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jennifer",
+      avatar: jenniferLee,
       skills: ["Youth Services", "Education"],
     },
     {
@@ -100,7 +112,7 @@ const Directory = () => {
       role: "Senior Advisor",
       location: "Historic District",
       email: "chris.b@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Christopher",
+      avatar: christopherBrown,
       skills: ["Strategy", "Mentoring"],
     },
     {
@@ -109,7 +121,7 @@ const Directory = () => {
       role: "Sponsorship Lead",
       location: "Business District",
       email: "amanda.w@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amanda",
+      avatar: amandaWhite,
       skills: ["Partnerships", "Business"],
     },
     {
@@ -118,7 +130,7 @@ const Directory = () => {
       role: "Community Member",
       location: "Riverside",
       email: "daniel.m@email.com",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Daniel",
+      avatar: danielMartinez,
       skills: ["Art", "Culture"],
     },
   ];
