@@ -190,7 +190,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 flex items-center justify-center">
             <div className="text-center text-white px-4">
               <h1 className="text-2xl lg:text-4xl font-bold mb-2">
-                {viewMode === "local" ? "San Francisco Dashboard" : "Bay Area Regional Network"}
+                {viewMode === "local" ? "CiviCircle" : "Bay Area Regional Network"}
               </h1>
               <p className="text-sm lg:text-base text-white/90">Where Public Servants Shine!</p>
             </div>
