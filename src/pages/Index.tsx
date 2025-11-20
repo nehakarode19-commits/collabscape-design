@@ -58,6 +58,49 @@ const Index = () => {
     content: "I just got back from an inspiring session about urban planning with some of the city's most innovative architects. It reminded me of why I love being part of this organization...",
   };
 
+  const posts = [
+    {
+      id: 1,
+      author: "Sarah Johnson",
+      role: "Organization Organizer",
+      city: "San Francisco",
+      department: "Organization Development",
+      time: "2 hours ago",
+      content: "I just got back from an inspiring session about urban planning with some of the city's most innovative architects. It reminded me of why I love being part of this organization. The collaborative spirit and innovative ideas shared today will shape our city for years to come.",
+      likes: 45,
+      comments: 12,
+      shares: 5,
+      avatar: "SJ",
+    },
+    {
+      id: 2,
+      author: "Michael Chen",
+      role: "Public Works Director",
+      city: "Oakland",
+      department: "Infrastructure",
+      time: "4 hours ago",
+      content: "Excited to announce our new green infrastructure project! We're implementing sustainable drainage systems across three neighborhoods. This initiative will reduce flooding while creating beautiful green spaces for our residents. #SustainableCity #PublicWorks",
+      likes: 89,
+      comments: 23,
+      shares: 15,
+      avatar: "MC",
+      image: true,
+    },
+    {
+      id: 3,
+      author: "Jennifer Rodriguez",
+      role: "IT Director",
+      city: "Berkeley",
+      department: "Technology",
+      time: "6 hours ago",
+      content: "Cybersecurity workshop was a huge success! Thanks to all the IT professionals who joined us. Key takeaway: Multi-factor authentication is non-negotiable in 2024. Let's keep our cities safe and secure. 🔒",
+      likes: 67,
+      comments: 18,
+      shares: 9,
+      avatar: "JR",
+    },
+  ];
+
   const experts = [
     { name: "Michael Chen", city: "Oakland", department: "Public Works", tags: ["Infrastructure", "Capital Planning"], avatar: "MC" },
     { name: "Jennifer Rodriguez", city: "Berkeley", department: "IT/Cyber", tags: ["Cybersecurity", "Cloud Migration"], avatar: "JR" },
@@ -309,32 +352,71 @@ const Index = () => {
                   <h2 className="text-xl font-bold text-foreground">
                     {viewMode === "local" ? "Organization Feed" : "Regional Updates"}
                   </h2>
-                  <Button variant="default" size="sm">
-                    + New Post
+                  <Button variant="default" size="sm" onClick={() => navigate("/posts")}>
+                    View All
                   </Button>
                 </div>
 
-                <div className="space-y-3">
-                  {/* Post */}
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold text-sm">
-                          SJ
+                <div className="space-y-4">
+                  {posts.map((post) => (
+                    <Card key={post.id} className="hover:shadow-md transition-shadow">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-start gap-3">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold text-sm shrink-0">
+                            {post.avatar}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="flex-1 min-w-0">
+                                <h3 className="font-semibold text-foreground text-sm truncate">{post.author}</h3>
+                                <p className="text-xs text-muted-foreground truncate">{post.role} • {post.city}</p>
+                                <div className="flex items-center gap-2 mt-1">
+                                  <Badge variant="secondary" className="text-[10px] py-0 px-1.5">
+                                    {post.department}
+                                  </Badge>
+                                  <span className="text-xs text-muted-foreground">• {post.time}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-foreground text-sm">{post.author}</h3>
-                          <p className="text-xs text-muted-foreground">{post.role} • {post.time}</p>
+                      </CardHeader>
+                      <CardContent className="pt-0 space-y-4">
+                        <p className="text-sm text-foreground leading-relaxed">{post.content}</p>
+                        
+                        {post.image && (
+                          <div className="w-full h-48 bg-muted rounded-lg flex items-center justify-center">
+                            <span className="text-muted-foreground text-sm">Project Image</span>
+                          </div>
+                        )}
+
+                        {/* Engagement Stats */}
+                        <div className="flex items-center gap-4 pt-2 border-t border-border text-xs text-muted-foreground">
+                          <span>{post.likes} likes</span>
+                          <span>•</span>
+                          <span>{post.comments} comments</span>
+                          <span>•</span>
+                          <span>{post.shares} shares</span>
                         </div>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <MessageSquare className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <p className="text-sm text-foreground leading-relaxed">{post.content}</p>
-                    </CardContent>
-                  </Card>
+
+                        {/* Action Buttons */}
+                        <div className="flex items-center gap-2 pt-2 border-t border-border">
+                          <Button variant="ghost" size="sm" className="flex-1 h-9">
+                            <Star className="h-4 w-4 mr-2" />
+                            Like
+                          </Button>
+                          <Button variant="ghost" size="sm" className="flex-1 h-9">
+                            <MessageSquare className="h-4 w-4 mr-2" />
+                            Comment
+                          </Button>
+                          <Button variant="ghost" size="sm" className="flex-1 h-9">
+                            <ArrowRight className="h-4 w-4 mr-2" />
+                            Share
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
               </section>
             </div>
