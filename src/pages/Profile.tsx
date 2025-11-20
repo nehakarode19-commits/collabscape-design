@@ -121,7 +121,7 @@ const Profile = () => {
                 <Calendar className="h-4 w-4 text-accent" />
               </div>
               <div>
-                <p className="font-medium">Joined Downtown Chapter</p>
+                <p className="font-medium">Joined Downtown Organization</p>
                 <p className="text-sm text-muted-foreground">2 weeks ago</p>
               </div>
             </div>

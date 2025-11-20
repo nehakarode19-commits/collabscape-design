@@ -5,8 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
-import Chapters from "./pages/Chapters";
-import ChapterDetail from "./pages/ChapterDetail";
+import Organizations from "./pages/Organizations";
+import OrganizationDetail from "./pages/OrganizationDetail";
 import Channels from "./pages/Channels";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
@@ -38,8 +38,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/chapters" element={<Chapters />} />
-          <Route path="/chapters/:id" element={<ChapterDetail />} />
+          <Route path="/organizations" element={<Organizations />} />
+          <Route path="/organizations/:id" element={<OrganizationDetail />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<EventDetail />} />
           <Route path="/donations" element={<Donations />} />
