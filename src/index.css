@@ -10,31 +10,34 @@ All colors MUST be HSL.
   :root {
     /* City Collab Brand Colors - Blue Palette */
     --background: 0 0% 98%;
-    --foreground: 203 100% 25%;
+    --foreground: 203 100% 16%;
     
-    /* Primary - Deep Blue #01447d */
-    --primary: 203 98% 25%;
+    /* Primary - Navy Blue #0A2342 */
+    --primary: 203 100% 16%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary - Dark Blue #02457c */
-    --secondary: 203 97% 25%;
+    /* Secondary - Slate #3E4C59 */
+    --secondary: 203 18% 30%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Accent - Bright Blue #00457c */
-    --accent: 203 100% 24%;
+    /* Accent - Teal #2BBBAD */
+    --accent: 173 66% 45%;
     --accent-foreground: 0 0% 100%;
     
-    /* Navy Blue #00407f */
-    --navy: 203 100% 25%;
+    /* Navy Blue #0A2342 */
+    --navy: 203 100% 16%;
     
-    /* Very Dark Blue #00447f */
-    --deep: 203 100% 25%;
+    /* Slate #3E4C59 */
+    --slate: 203 18% 30%;
+    
+    /* Teal #2BBBAD */
+    --teal: 173 66% 45%;
     
     --card: 0 0% 100%;
-    --card-foreground: 203 100% 25%;
+    --card-foreground: 203 100% 16%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 203 100% 25%;
+    --popover-foreground: 203 100% 16%;
     
     --muted: 210 40% 96%;
     --muted-foreground: 203 30% 45%;
@@ -44,15 +47,15 @@ All colors MUST be HSL.
     
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 203 98% 25%;
+    --ring: 203 100% 16%;
     
     --radius: 0.75rem;
     
     /* Design System Extensions */
-    --gradient-primary: linear-gradient(135deg, hsl(203 98% 25%), hsl(203 100% 24%));
+    --gradient-primary: linear-gradient(135deg, hsl(203 100% 16%), hsl(173 66% 45%));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --shadow-card: 0 2px 8px -2px hsl(203 98% 25% / 0.08);
-    --shadow-elevated: 0 8px 24px -4px hsl(203 98% 25% / 0.12);
+    --shadow-card: 0 2px 8px -2px hsl(203 100% 16% / 0.08);
+    --shadow-elevated: 0 8px 24px -4px hsl(203 100% 16% / 0.12);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
@@ -76,14 +79,14 @@ All colors MUST be HSL.
     --background: 203 100% 8%;
     --foreground: 0 0% 98%;
     
-    --primary: 203 100% 24%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 173 66% 45%;
+    --primary-foreground: 203 100% 8%;
     
-    --secondary: 203 97% 25%;
+    --secondary: 203 18% 30%;
     --secondary-foreground: 0 0% 100%;
     
-    --accent: 203 100% 24%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 173 66% 45%;
+    --accent-foreground: 203 100% 8%;
     
     --card: 203 100% 12%;
     --card-foreground: 0 0% 98%;
@@ -99,16 +102,16 @@ All colors MUST be HSL.
     
     --border: 203 50% 20%;
     --input: 203 50% 20%;
-    --ring: 203 100% 40%;
+    --ring: 173 66% 45%;
     
     --sidebar-background: 203 100% 10%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 203 100% 24%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary: 173 66% 45%;
+    --sidebar-primary-foreground: 203 100% 8%;
     --sidebar-accent: 203 50% 20%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 203 50% 20%;
-    --sidebar-ring: 203 100% 40%;
+    --sidebar-ring: 173 66% 45%;
   }
 }
 
