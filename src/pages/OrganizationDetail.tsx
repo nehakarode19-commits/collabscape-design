@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { useNavigate, useParams } from "react-router-dom";
 
-const ChapterDetail = () => {
+const OrganizationDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -13,7 +13,7 @@ const ChapterDetail = () => {
       <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon" onClick={() => navigate("/chapters")}>
+            <Button variant="ghost" size="icon" onClick={() => navigate("/organizations")}>
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
@@ -89,13 +89,19 @@ const ChapterDetail = () => {
           <Card className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => navigate("/events/1")}>
             <CardHeader>
               <CardTitle className="text-base">Community Cleanup</CardTitle>
-              <CardDescription>March 15, 2024 • 9:00 AM</CardDescription>
+              <CardDescription className="flex items-center gap-2 mt-2">
+                <Calendar className="h-4 w-4" />
+                March 15, 2024 at 9:00 AM
+              </CardDescription>
             </CardHeader>
           </Card>
           <Card className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => navigate("/events/2")}>
             <CardHeader>
-              <CardTitle className="text-base">Business Networking Night</CardTitle>
-              <CardDescription>March 22, 2024 • 6:00 PM</CardDescription>
+              <CardTitle className="text-base">Business Networking Mixer</CardTitle>
+              <CardDescription className="flex items-center gap-2 mt-2">
+                <Calendar className="h-4 w-4" />
+                March 22, 2024 at 6:00 PM
+              </CardDescription>
             </CardHeader>
           </Card>
         </div>
@@ -104,4 +110,4 @@ const ChapterDetail = () => {
   );
 };
 
-export default ChapterDetail;
+export default OrganizationDetail;

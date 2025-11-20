@@ -4,13 +4,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 
-const Chapters = () => {
+const Organizations = () => {
   const navigate = useNavigate();
 
-  const chapters = [
+  const organizations = [
     {
       id: 1,
-      name: "Downtown Chapter",
+      name: "Downtown Organization",
       location: "Downtown District",
       members: 145,
       nextEvent: "Mar 15, 2024",
@@ -18,7 +18,7 @@ const Chapters = () => {
     },
     {
       id: 2,
-      name: "Northside Chapter",
+      name: "Northside Organization",
       location: "North Valley",
       members: 98,
       nextEvent: "Mar 18, 2024",
@@ -26,7 +26,7 @@ const Chapters = () => {
     },
     {
       id: 3,
-      name: "Eastside Chapter",
+      name: "Eastside Organization",
       location: "East District",
       members: 112,
       nextEvent: "Mar 20, 2024",
@@ -43,8 +43,8 @@ const Chapters = () => {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-bold text-primary md:text-xl">Organization</h1>
-              <p className="text-xs text-muted-foreground">Connect with local chapters</p>
+              <h1 className="text-lg font-bold text-primary md:text-xl">Organizations</h1>
+              <p className="text-xs text-muted-foreground">Connect with local organizations</p>
             </div>
           </div>
         </div>
@@ -52,27 +52,27 @@ const Chapters = () => {
 
       <main className="container mx-auto px-4 py-6 md:py-8">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {chapters.map((chapter) => (
+          {organizations.map((organization) => (
             <Card 
-              key={chapter.id}
+              key={organization.id}
               className="cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
-              onClick={() => navigate(`/chapters/${chapter.id}`)}
+              onClick={() => navigate(`/organizations/${organization.id}`)}
             >
               <CardHeader>
                 <div className="mb-2">
-                  <Badge variant="secondary">{chapter.location}</Badge>
+                  <Badge variant="secondary">{organization.location}</Badge>
                 </div>
-                <CardTitle className="text-xl">{chapter.name}</CardTitle>
-                <CardDescription>{chapter.description}</CardDescription>
+                <CardTitle className="text-xl">{organization.name}</CardTitle>
+                <CardDescription>{organization.description}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Users className="h-4 w-4" />
-                  <span>{chapter.members} members</span>
+                  <span>{organization.members} members</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="h-4 w-4" />
-                  <span>Next event: {chapter.nextEvent}</span>
+                  <span>Next event: {organization.nextEvent}</span>
                 </div>
               </CardContent>
             </Card>
@@ -83,4 +83,4 @@ const Chapters = () => {
   );
 };
 
-export default Chapters;
+export default Organizations;
