@@ -198,7 +198,7 @@ const Index = () => {
 
         {/* View Mode Toggle */}
         <div className="border-b border-border bg-card">
-          <div className="px-6 py-4 max-w-7xl mx-auto">
+          <div className="px-6 py-4">
             <div className="flex items-center justify-center gap-4">
               <Button
                 variant={viewMode === "local" ? "default" : "ghost"}
@@ -241,7 +241,7 @@ const Index = () => {
         </section>
 
         {/* Main Content Area */}
-        <main className="px-6 py-6 max-w-7xl mx-auto">
+        <main className="px-6 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Left Column - Main Feed */}
             <div className="lg:col-span-2 space-y-6">
