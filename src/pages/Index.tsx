@@ -8,6 +8,9 @@ import { MenuNavLink } from "@/components/MenuNavLink";
 import { useState } from "react";
 import heroSkyline from "@/assets/hero-city-skyline.jpg";
 import civiCircleLogo from "@/assets/civicircle-logo.jpg";
+import city1 from "@/assets/city-1.jpg";
+import city2 from "@/assets/city-2.jpg";
+import city3 from "@/assets/city-3.jpg";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -71,6 +74,7 @@ const Index = () => {
       comments: 12,
       shares: 5,
       avatar: "SJ",
+      image: city1,
     },
     {
       id: 2,
@@ -84,7 +88,7 @@ const Index = () => {
       comments: 23,
       shares: 15,
       avatar: "MC",
-      image: true,
+      image: city2,
     },
     {
       id: 3,
@@ -98,6 +102,7 @@ const Index = () => {
       comments: 18,
       shares: 9,
       avatar: "JR",
+      image: city3,
     },
   ];
 
@@ -385,9 +390,11 @@ const Index = () => {
                         <p className="text-sm text-foreground leading-relaxed">{post.content}</p>
                         
                         {post.image && (
-                          <div className="w-full h-48 bg-muted rounded-lg flex items-center justify-center">
-                            <span className="text-muted-foreground text-sm">Project Image</span>
-                          </div>
+                          <img 
+                            src={post.image} 
+                            alt="Post content" 
+                            className="w-full h-64 object-cover rounded-lg"
+                          />
                         )}
 
                         {/* Engagement Stats */}
