@@ -423,6 +423,163 @@ const Index = () => {
 
             {/* Right Column - Sidebar Widgets */}
             <div className="space-y-6">
+              {/* Upcoming Events */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <CardTitle className="text-lg">Upcoming Events</CardTitle>
+                      <CardDescription className="text-xs">Regional & local sessions</CardDescription>
+                    </div>
+                    <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => navigate("/events")}>
+                      View All
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+                      <h4 className="font-medium text-sm text-foreground mb-1">Regional Emergency Response Training</h4>
+                      <p className="text-xs text-muted-foreground mb-2">Nov 25, 2025 • Springfield, IL • 45 attending</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary" className="text-[10px]">training</Badge>
+                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => navigate("/events/1")}>
+                          Register →
+                        </Button>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+                      <h4 className="font-medium text-sm text-foreground mb-1">City Managers Quarterly Summit</h4>
+                      <p className="text-xs text-muted-foreground mb-2">Dec 2, 2025 • Virtual • 120 attending</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary" className="text-[10px]">conference</Badge>
+                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => navigate("/events/2")}>
+                          Register →
+                        </Button>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+                      <h4 className="font-medium text-sm text-foreground mb-1">Budget Planning Workshop 2025</h4>
+                      <p className="text-xs text-muted-foreground mb-2">Dec 10, 2025 • Chicago, IL • 32 attending</p>
+                      <div className="flex items-center justify-between">
+                        <Badge variant="secondary" className="text-[10px]">workshop</Badge>
+                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => navigate("/events/3")}>
+                          Register →
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* My Departments & Channels */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-base">My Departments & Channels</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/channels")}>
+                      <span className="text-sm text-foreground"># Fire Services</span>
+                      <Badge variant="destructive" className="h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px]">
+                        3
+                      </Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/channels")}>
+                      <span className="text-sm text-foreground"># Police Department</span>
+                      <Badge variant="destructive" className="h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px]">
+                        7
+                      </Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/channels")}>
+                      <span className="text-sm text-foreground"># Public Works</span>
+                      <Badge variant="destructive" className="h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px]">
+                        5
+                      </Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/channels")}>
+                      <span className="text-sm text-foreground"># Emergency Planning Committee</span>
+                      <Badge variant="destructive" className="h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px]">
+                        2
+                      </Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/channels")}>
+                      <span className="text-sm text-foreground"># Regional Chiefs Network</span>
+                      <Badge variant="destructive" className="h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px]">
+                        8
+                      </Badge>
+                    </div>
+                    <div className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/channels")}>
+                      <span className="text-sm text-foreground"># Grant Writing Task Force</span>
+                      <Badge variant="destructive" className="h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px]">
+                        1
+                      </Badge>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* SOP Quick Access */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="text-base">SOP Quick Access</CardTitle>
+                    <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => navigate("/sop-library")}>
+                      Search All
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/sop-library")}>
+                      <h4 className="font-medium text-sm text-foreground mb-1">Emergency Weather Response</h4>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Emergency Services</span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          Viewed yesterday
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/sop-library")}>
+                      <h4 className="font-medium text-sm text-foreground mb-1">Vehicle Fleet Maintenance</h4>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Public Works</span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          Viewed 3 days ago
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/sop-library")}>
+                      <h4 className="font-medium text-sm text-foreground mb-1">Hazmat Incident Protocol</h4>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Fire Department</span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          Viewed this week
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/sop-library")}>
+                      <h4 className="font-medium text-sm text-foreground mb-1">Organization Outreach Guidelines</h4>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Administration</span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          Viewed last week
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Expertise Finder */}
               <Card>
                 <CardHeader className="pb-3">
