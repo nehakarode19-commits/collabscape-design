@@ -144,7 +144,7 @@ const SOPLibrary = () => {
 
         {/* Main Content */}
         <main className="flex-1 p-6">
-          <div className="max-w-5xl mx-auto">
+          <div>
             {/* Header Section */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">

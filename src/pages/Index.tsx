@@ -163,7 +163,7 @@ const Index = () => {
         <header className="sticky top-0 z-40 bg-card border-b border-border">
           <div className="px-6 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4 flex-1 max-w-2xl">
+              <div className="flex items-center gap-4 flex-1">
                 <div className="lg:hidden flex items-center gap-3">
                   <img src={civiCircleLogo} alt="CiviCircle" className="h-8 w-8 object-contain" />
                   <div>

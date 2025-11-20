@@ -155,7 +155,7 @@ const ChannelDetail = () => {
           </div>
 
           <ScrollArea className="flex-1 p-4">
-            <div className="space-y-4 max-w-4xl mx-auto">
+            <div className="space-y-4">
               {messages.map((msg) => (
                 <Card key={msg.id} className="bg-card">
                   <CardContent className="p-4">
@@ -202,7 +202,7 @@ const ChannelDetail = () => {
 
           {/* Message Input */}
           <div className="p-4 border-t border-border bg-card">
-            <div className="max-w-4xl mx-auto">
+            <div>
               <div className="flex items-center gap-2">
                 <Button variant="ghost" size="icon">
                   <Paperclip className="h-5 w-5" />

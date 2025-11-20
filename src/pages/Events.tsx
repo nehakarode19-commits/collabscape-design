@@ -75,7 +75,7 @@ const Events = () => {
 
       <main className="container mx-auto px-4 py-6 md:py-8">
         <Tabs defaultValue="upcoming" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-6">
+          <TabsList className="grid w-full mx-auto grid-cols-2 mb-6">
             <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
             <TabsTrigger value="past">Past Events</TabsTrigger>
           </TabsList>

@@ -66,7 +66,7 @@ const Sponsorship = () => {
       </header>
 
       <main className="container mx-auto px-4 py-6 md:py-8">
-        <div className="text-center mb-8 max-w-2xl mx-auto">
+        <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">Become a Sponsor</h2>
           <p className="text-muted-foreground">
             Partner with City Collab to create lasting impact in our community. Choose the sponsorship 
@@ -74,7 +74,7 @@ const Sponsorship = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+        <div className="grid gap-6 md:grid-cols-3">
           {packages.map((pkg) => (
             <Card 
               key={pkg.id}

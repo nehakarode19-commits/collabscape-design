@@ -165,7 +165,7 @@ const Notifications = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
+      <main className="container mx-auto px-4 py-6 md:py-8">
         <Tabs defaultValue="all" className="w-full">
           <TabsList className="grid w-full grid-cols-3 mb-6">
             <TabsTrigger value="all">

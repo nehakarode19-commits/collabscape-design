@@ -23,7 +23,7 @@ const VolunteeringDetail = () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6 md:py-8 max-w-4xl">
+      <main className="container mx-auto px-4 py-6 md:py-8">
         <div className="mb-6">
           <Badge variant="secondary" className="mb-3">Charity</Badge>
           <h1 className="text-3xl font-bold mb-2">Food Bank Assistant</h1>
