@@ -1,4 +1,4 @@
-import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Home, BookOpen, User, Settings, Hash, Megaphone } from "lucide-react";
+import { Bell, Search, Users, Calendar, Heart, HandHeart, Award, MessageSquare, Home, BookOpen, User, Settings, Hash, Megaphone, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -75,6 +75,7 @@ const Index = () => {
           <MenuNavLink to="/volunteering" icon={HandHeart} label="Volunteering" />
           <MenuNavLink to="/messages" icon={MessageSquare} label="Messages" />
           <MenuNavLink to="/channels" icon={Hash} label="Channels" />
+          <MenuNavLink to="/sop-library" icon={FileText} label="SOP Library" />
           <MenuNavLink to="/directory" icon={Users} label="Directory" />
         </nav>
 

@@ -25,6 +25,7 @@ import ChannelDetail from "./pages/ChannelDetail";
 import ConversationDetail from "./pages/ConversationDetail";
 import Notifications from "./pages/Notifications";
 import Settings from "./pages/Settings";
+import SOPLibrary from "./pages/SOPLibrary";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/sop-library" element={<SOPLibrary />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
