@@ -48,7 +48,7 @@ const DonationDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
       </div>
 
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
+      <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
