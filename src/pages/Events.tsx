@@ -14,7 +14,7 @@ const Events = () => {
   const upcomingEvents = [
     {
       id: 1,
-      title: "Community Cleanup",
+      title: "Organization Cleanup",
       date: "March 15, 2024",
       time: "9:00 AM",
       location: "Central Park",
@@ -50,7 +50,7 @@ const Events = () => {
       title: "Winter Food Drive",
       date: "February 10, 2024",
       time: "10:00 AM",
-      location: "Community Center",
+      location: "Organization Center",
       attendees: 67,
       category: "Charity",
       image: event2,
@@ -67,7 +67,7 @@ const Events = () => {
             </Button>
             <div>
               <h1 className="text-lg font-bold text-primary md:text-xl">Events</h1>
-              <p className="text-xs text-muted-foreground">Discover community events</p>
+              <p className="text-xs text-muted-foreground">Discover organization events</p>
             </div>
           </div>
         </div>

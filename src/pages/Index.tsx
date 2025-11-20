@@ -21,13 +21,13 @@ const Index = () => {
     },
     {
       title: "Events",
-      description: "Discover and attend community events happening near you",
+      description: "Discover and attend organization events happening near you",
       icon: Calendar,
       href: "/events",
     },
     {
       title: "Donations",
-      description: "Support local causes and make a difference in your community",
+      description: "Support local causes and make a difference in your organization",
       icon: Heart,
       href: "/donations",
     },
@@ -39,7 +39,7 @@ const Index = () => {
     },
     {
       title: "Sponsorship",
-      description: "Partner with us and help grow our community initiatives",
+      description: "Partner with us and help grow our organization initiatives",
       icon: Award,
       href: "/sponsorship",
     },
@@ -47,15 +47,15 @@ const Index = () => {
 
   const announcement = {
     title: "Important: City Hall Meeting",
-    message: "Join us this Thursday at 7 PM for our monthly community meeting. Topics include upcoming projects and budget discussions.",
+    message: "Join us this Thursday at 7 PM for our monthly organization meeting. Topics include upcoming projects and budget discussions.",
     icon: Megaphone,
   };
 
   const post = {
     author: "Sarah Johnson",
-    role: "Community Organizer",
+    role: "Organization Organizer",
     time: "2 hours ago",
-    content: "I just got back from an inspiring session about urban planning with some of the city's most innovative architects. It reminded me of why I love being part of this community...",
+    content: "I just got back from an inspiring session about urban planning with some of the city's most innovative architects. It reminded me of why I love being part of this organization...",
   };
 
   const experts = [
@@ -303,11 +303,11 @@ const Index = () => {
                 </section>
               )}
 
-              {/* Community Feed */}
+              {/* Organization Feed */}
               <section>
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl font-bold text-foreground">
-                    {viewMode === "local" ? "Community Feed" : "Regional Updates"}
+                    {viewMode === "local" ? "Organization Feed" : "Regional Updates"}
                   </h2>
                   <Button variant="default" size="sm">
                     + New Post

@@ -156,7 +156,7 @@ const Auth = () => {
             <Home className="h-8 w-8 text-primary" />
             <h1 className="text-3xl font-bold text-primary">City Collab</h1>
           </div>
-          <p className="text-muted-foreground">Join your city's community</p>
+          <p className="text-muted-foreground">Join your city&apos;s organization</p>
         </div>
 
         <Tabs defaultValue="signin" className="w-full">
@@ -216,7 +216,7 @@ const Auth = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Create Account</CardTitle>
-                <CardDescription>Join your city's community today</CardDescription>
+                <CardDescription>Join your city&apos;s organization today</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignUp} className="space-y-4">

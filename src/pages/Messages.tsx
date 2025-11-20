@@ -43,7 +43,7 @@ const Messages = () => {
     {
       id: 2,
       name: "events",
-      lastMessage: "New event posted: Community Cleanup",
+      lastMessage: "New event posted: Organization Cleanup",
       time: "1 hour ago",
       unread: 0,
     },

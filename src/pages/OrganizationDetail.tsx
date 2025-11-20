@@ -42,8 +42,8 @@ const OrganizationDetail = () => {
             <div>
               <h3 className="font-semibold mb-2">About</h3>
               <p className="text-muted-foreground">
-                Active community focused on urban development and local businesses. We organize monthly meetups,
-                networking events, and community service projects to make our downtown area thrive.
+                Active organization focused on urban development and local businesses. We organize monthly meetups,
+                networking events, and organization service projects to make our downtown area thrive.
               </p>
             </div>
 
@@ -88,7 +88,7 @@ const OrganizationDetail = () => {
         <div className="space-y-3">
           <Card className="cursor-pointer hover:shadow-md transition-shadow" onClick={() => navigate("/events/1")}>
             <CardHeader>
-              <CardTitle className="text-base">Community Cleanup</CardTitle>
+              <CardTitle className="text-base">Organization Cleanup</CardTitle>
               <CardDescription className="flex items-center gap-2 mt-2">
                 <Calendar className="h-4 w-4" />
                 March 15, 2024 at 9:00 AM

@@ -13,8 +13,8 @@ const Donations = () => {
   const campaigns = [
     {
       id: 1,
-      title: "Community Garden Project",
-      description: "Help us build a sustainable community garden for local families",
+      title: "Organization Garden Project",
+      description: "Help us build a sustainable organization garden for local families",
       raised: 12500,
       goal: 20000,
       donors: 87,
@@ -32,7 +32,7 @@ const Donations = () => {
     {
       id: 3,
       title: "Senior Care Initiative",
-      description: "Provide meals and companionship for elderly community members",
+      description: "Provide meals and companionship for elderly organization members",
       raised: 15700,
       goal: 18000,
       donors: 103,
@@ -50,7 +50,7 @@ const Donations = () => {
             </Button>
             <div>
               <h1 className="text-lg font-bold text-primary md:text-xl">Donations</h1>
-              <p className="text-xs text-muted-foreground">Support community causes</p>
+              <p className="text-xs text-muted-foreground">Support organization causes</p>
             </div>
           </div>
         </div>

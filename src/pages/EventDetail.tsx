@@ -32,7 +32,7 @@ const EventDetail = () => {
       <div className="relative h-64 md:h-80 overflow-hidden">
         <img 
           src={event3} 
-          alt="Community Cleanup Day"
+          alt="Organization Cleanup Day"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
@@ -68,7 +68,7 @@ const EventDetail = () => {
                 <div>
                   <h3 className="font-bold text-foreground mb-2">ABOUT US</h3>
                   <p className="text-sm text-muted-foreground mb-3">
-                    Bangalore, Karnataka, Is Not Just A Bustling Tech Hub; It's Also Home To A Vibrant Community Of Artists And Innovators.
+                    Bangalore, Karnataka, Is Not Just A Bustling Tech Hub; It&apos;s Also Home To A Vibrant Organization Of Artists And Innovators.
                   </p>
                   <Button className="w-full" variant="secondary">Interested</Button>
                 </div>

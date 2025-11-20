@@ -14,7 +14,7 @@ const Organizations = () => {
       location: "Downtown District",
       members: 145,
       nextEvent: "Mar 15, 2024",
-      description: "Active community focused on urban development and local businesses",
+      description: "Active organization focused on urban development and local businesses",
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ const Organizations = () => {
       location: "East District",
       members: 112,
       nextEvent: "Mar 20, 2024",
-      description: "Focus on education and youth programs in the community",
+      description: "Focus on education and youth programs in the organization",
     },
   ];
 
