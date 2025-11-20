@@ -13,8 +13,8 @@ const DonationDetail = () => {
   const [amount, setAmount] = useState("50");
 
   const campaign = {
-    title: "Community Garden Project",
-    description: "Help us build a sustainable community garden for local families",
+    title: "Organization Garden Project",
+    description: "Help us build a sustainable organization garden for local families",
     raised: 12500,
     goal: 20000,
     donors: 87,
@@ -84,13 +84,13 @@ const DonationDetail = () => {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">About This Campaign</h2>
               <p className="text-muted-foreground leading-relaxed">
-                We're excited to announce our Community Garden Project! This initiative will create a beautiful, 
+                We&apos;re excited to announce our Organization Garden Project! This initiative will create a beautiful, 
                 sustainable garden space where local families can grow fresh produce, learn about organic farming, 
                 and connect with their neighbors.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Your donation will help us purchase seeds, tools, soil, and build raised garden beds. Together, 
-                we can create a green oasis that brings our community closer while promoting healthy, sustainable 
+                we can create a green oasis that brings our organization closer while promoting healthy, sustainable 
                 living.
               </p>
             </div>

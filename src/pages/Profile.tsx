@@ -36,7 +36,7 @@ const Profile = () => {
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold mb-1">John Doe</h2>
-                <p className="text-muted-foreground mb-3">Community Member</p>
+                <p className="text-muted-foreground mb-3">Organization Member</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="secondary">Volunteering</Badge>
                   <Badge variant="secondary">Events</Badge>
@@ -103,7 +103,7 @@ const Profile = () => {
                 <Calendar className="h-4 w-4 text-primary" />
               </div>
               <div>
-                <p className="font-medium">Attended Community Cleanup</p>
+                <p className="font-medium">Attended Organization Cleanup</p>
                 <p className="text-sm text-muted-foreground">2 days ago</p>
               </div>
             </div>

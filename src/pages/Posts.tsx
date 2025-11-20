@@ -45,7 +45,7 @@ const Posts = () => {
       role: "Police Chief",
       city: "Berkeley",
       department: "Police Department",
-      content: "Community policing initiative showing excellent results. Crime rates down 15% and community satisfaction scores up significantly. Open to sharing best practices.",
+      content: "Organization policing initiative showing excellent results. Crime rates down 15% and organization satisfaction scores up significantly. Open to sharing best practices.",
       likes: 312,
       comments: 45,
       time: "5 hours ago",
@@ -57,7 +57,7 @@ const Posts = () => {
       author: "Robert Taylor",
       role: "Event Coordinator",
       city: "San Jose",
-      department: "Community Services",
+      department: "Organization Services",
       content: "Join us for the Regional Leadership Summit next month! Network with chiefs and managers from across the state. Registration opens Monday.",
       likes: 156,
       comments: 22,
@@ -82,7 +82,7 @@ const Posts = () => {
       author: "David Kim",
       role: "Program Director",
       city: "Fremont",
-      department: "Community Development",
+      department: "Organization Development",
       content: "Thanks to our partnership with TechCorp, we're launching free coding bootcamps for underserved youth. Applications open next week for 100 spots!",
       likes: 267,
       comments: 38,
@@ -111,7 +111,7 @@ const Posts = () => {
     ],
     trending: [
       { topic: "Emergency Preparedness", posts: 45 },
-      { topic: "Community Engagement", posts: 38 },
+      { topic: "Organization Engagement", posts: 38 },
       { topic: "Budget Optimization", posts: 29 },
     ],
     experts: [
@@ -131,7 +131,7 @@ const Posts = () => {
             </Button>
             <div>
               <h1 className="text-lg font-bold text-primary md:text-xl">City Feed</h1>
-              <p className="text-xs text-muted-foreground">Community posts</p>
+              <p className="text-xs text-muted-foreground">Organization posts</p>
             </div>
           </div>
         </div>
