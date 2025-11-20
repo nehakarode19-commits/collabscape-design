@@ -1,4 +1,4 @@
-import { ArrowLeft, Search, MapPin } from "lucide-react";
+import { ArrowLeft, Search, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import sarahJohnson from "@/assets/members/sarah-johnson.jpg";
@@ -29,6 +36,7 @@ const Directory = () => {
   const [selectedDepartments, setSelectedDepartments] = useState<string[]>(["Administration"]);
   const [selectedSeniority, setSelectedSeniority] = useState<string>("");
   const [nearbyOnly, setNearbyOnly] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState<string>("any");
 
   const members = [
     {
@@ -175,26 +183,70 @@ const Directory = () => {
       selectedSeniority === member.seniority;
 
     const matchesLocation = 
+      selectedLocation === "any" ||
+      (selectedLocation === "nearby" && (
+        member.location.includes("San Francisco") || 
+        member.location.includes("Oakland") ||
+        member.location.includes("Berkeley")
+      )) ||
+      (selectedLocation !== "any" && selectedLocation !== "nearby" && member.location.includes(selectedLocation));
+
+    const matchesNearby = 
       !nearbyOnly || 
       member.location.includes("San Francisco") || 
       member.location.includes("Oakland") ||
       member.location.includes("Berkeley");
 
-    return matchesSearch && matchesDepartment && matchesSeniority && matchesLocation;
+    return matchesSearch && matchesDepartment && matchesSeniority && matchesLocation && matchesNearby;
   });
+
+  const getFilterSummary = () => {
+    if (selectedDepartments.length === 1) {
+      return `"${selectedDepartments[0]}"`;
+    }
+    return "all departments";
+  };
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-8">
       <header className="sticky top-0 z-50 border-b border-border bg-card shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-3">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center gap-3 mb-4">
             <Button variant="ghost" size="icon" onClick={() => navigate("/")}>
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-bold text-primary md:text-xl">Member Directory</h1>
-              <p className="text-xs text-muted-foreground">{filteredMembers.length} members</p>
+              <h1 className="text-2xl font-bold text-foreground">Member Directory</h1>
+              <p className="text-sm text-muted-foreground mt-1">
+                Showing {filteredMembers.length} verified officials matching {getFilterSummary()}
+              </p>
             </div>
+          </div>
+
+          <div className="flex gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                placeholder="Search by name, job title, or skill..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 h-11"
+              />
+            </div>
+            <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+              <SelectTrigger className="w-[180px] h-11">
+                <SelectValue placeholder="Any Location" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="any">Any Location</SelectItem>
+                <SelectItem value="nearby">Nearby (&lt; 50mi)</SelectItem>
+                <SelectItem value="San Francisco">San Francisco</SelectItem>
+                <SelectItem value="Oakland">Oakland</SelectItem>
+                <SelectItem value="Berkeley">Berkeley</SelectItem>
+                <SelectItem value="San Jose">San Jose</SelectItem>
+                <SelectItem value="Sacramento">Sacramento</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </header>
@@ -207,21 +259,11 @@ const Directory = () => {
             <Card>
               <CardContent className="p-4 space-y-4">
                 <h3 className="font-semibold text-sm text-foreground">Quick Find</h3>
-                
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    placeholder="Find My Counterparts"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-9"
-                  />
-                </div>
 
                 <div className="flex items-center justify-between py-2">
                   <Label htmlFor="nearby-toggle" className="text-sm flex items-center gap-2 cursor-pointer">
                     <MapPin className="h-4 w-4 text-primary" />
-                    Nearby Cities (&lt; 50mi)
+                    Nearby Only
                   </Label>
                   <Switch
                     id="nearby-toggle"
