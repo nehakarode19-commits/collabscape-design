@@ -250,6 +250,27 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Left Column - Main Feed */}
             <div className="lg:col-span-2 space-y-6">
+              {/* Explore Section */}
+              <section>
+                <h2 className="text-xl font-bold text-foreground mb-4">Quick Access</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {exploreCards.slice(0, 6).map((card) => (
+                    <Card
+                      key={card.title}
+                      className="cursor-pointer hover:shadow-md transition-all group"
+                      onClick={() => navigate(card.href)}
+                    >
+                      <CardHeader className="pb-2 pt-4">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 mb-2 group-hover:bg-primary/20 transition-colors">
+                          <card.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <CardTitle className="text-sm">{card.title}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+
               {/* My Tasks & Actions */}
               <Card>
                 <CardHeader className="pb-3">
@@ -283,27 +304,6 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Explore Section */}
-              <section>
-                <h2 className="text-xl font-bold text-foreground mb-4">Quick Access</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {exploreCards.slice(0, 6).map((card) => (
-                    <Card
-                      key={card.title}
-                      className="cursor-pointer hover:shadow-md transition-all group"
-                      onClick={() => navigate(card.href)}
-                    >
-                      <CardHeader className="pb-2 pt-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 mb-2 group-hover:bg-primary/20 transition-colors">
-                          <card.icon className="h-5 w-5 text-primary" />
-                        </div>
-                        <CardTitle className="text-sm">{card.title}</CardTitle>
-                      </CardHeader>
-                    </Card>
-                  ))}
-                </div>
-              </section>
 
               {/* Important Announcement */}
               <Card className="bg-primary/5 border-primary/20">
