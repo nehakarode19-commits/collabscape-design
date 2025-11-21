@@ -232,23 +232,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Hero Section */}
-        <section className="relative h-48 lg:h-64 overflow-hidden">
-          <img
-            src={heroSkyline}
-            alt="U.S.A. city skyline at sunset"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 flex items-center justify-center">
-            <div className="text-center text-white px-4">
-              <h1 className="text-2xl lg:text-4xl font-bold mb-2">
-                {viewMode === "local" ? "CiviCircle" : "Bay Area Regional Network"}
-              </h1>
-              <p className="text-sm lg:text-base text-white/90">Where Public Servants Shine!</p>
-            </div>
-          </div>
-        </section>
-
         {/* Main Content Area */}
         <main className="px-6 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
