@@ -292,10 +292,10 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              {/* Quick Actions */}
+              {/* Quick Access */}
               <Card>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-base">Quick Actions</CardTitle>
+                  <CardTitle className="text-base">Quick Access</CardTitle>
                   <CardDescription className="text-xs">Create posts, events, SOPs, or post updates</CardDescription>
                 </CardHeader>
                 <CardContent>
