@@ -358,9 +358,9 @@ const Index = () => {
 
             {/* Center Column - Activity Feed */}
             <div className="lg:col-span-6 space-y-6">
-              {/* Quick Access Section */}
+              {/* Member Access Section */}
               <section>
-                <h2 className="text-xl font-bold text-foreground mb-4">Quick Access</h2>
+                <h2 className="text-xl font-bold text-foreground mb-4">Member Access</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {exploreCards.map((card) => (
                     <Card
