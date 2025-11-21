@@ -241,195 +241,233 @@ const Index = () => {
 
         {/* Main Content Area */}
         <main className="px-6 py-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left Column - Main Feed */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Explore Section */}
-              <section>
-                <h2 className="text-xl font-bold text-foreground mb-4">Quick Access</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {exploreCards.slice(0, 6).map((card) => (
-                    <Card
-                      key={card.title}
-                      className="cursor-pointer hover:shadow-md transition-all group"
-                      onClick={() => navigate(card.href)}
-                    >
-                      <CardHeader className="pb-2 pt-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 mb-2 group-hover:bg-primary/20 transition-colors">
-                          <card.icon className="h-5 w-5 text-primary" />
-                        </div>
-                        <CardTitle className="text-sm">{card.title}</CardTitle>
-                      </CardHeader>
-                    </Card>
-                  ))}
-                </div>
-              </section>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Left Sidebar - Profile & Actions */}
+            <div className="lg:col-span-3 space-y-6">
+              {/* User Profile Card */}
+              <Card>
+                <CardContent className="p-6 text-center">
+                  <div className="flex h-20 w-20 mx-auto items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold text-xl mb-3">
+                    SM
+                  </div>
+                  <h3 className="font-bold text-foreground text-base mb-1">Sarah Martinez</h3>
+                  <p className="text-xs text-muted-foreground mb-4">Emergency Services Director</p>
+                  
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-muted/50">
+                      <p className="text-xs text-muted-foreground mb-1">Regional Connections</p>
+                      <p className="text-lg font-bold text-foreground">124</p>
+                    </div>
+                    <div className="p-3 rounded-lg bg-muted/50">
+                      <p className="text-xs text-muted-foreground mb-1">Committees</p>
+                      <p className="text-lg font-bold text-foreground">3</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-3 rounded-lg bg-muted/50">
+                      <p className="text-xs text-muted-foreground mb-1">SOPs Owned</p>
+                      <p className="text-lg font-bold text-foreground">8</p>
+                    </div>
+                    <div className="p-3 rounded-lg bg-muted/50">
+                      <p className="text-xs text-muted-foreground mb-1">Compliance</p>
+                      <p className="text-lg font-bold text-foreground">92%</p>
+                    </div>
+                  </div>
+                  
+                  <Button variant="default" className="w-full mt-4" onClick={() => navigate("/profile")}>
+                    Edit Profile
+                  </Button>
+                </CardContent>
+              </Card>
 
-              {/* My Tasks & Actions */}
+              {/* Quick Actions */}
               <Card>
                 <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg flex items-center gap-2">
-                      <CheckSquare className="h-5 w-5 text-primary" />
-                      My Tasks & Actions
-                    </CardTitle>
-                    <Badge variant="secondary">{tasks.length}</Badge>
-                  </div>
+                  <CardTitle className="text-base">Quick Actions</CardTitle>
+                  <CardDescription className="text-xs">Create posts, events, SOPs, or post updates</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    {tasks.map((task, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-muted/50 cursor-pointer transition-colors"
-                      >
-                        <div className="flex items-center gap-3 flex-1">
-                          {task.urgent && <AlertTriangle className="h-4 w-4 text-destructive shrink-0" />}
+                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/events")}>
+                      <Calendar className="h-4 w-4 mr-2" />
+                      Create Event
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/sop-library")}>
+                      <FileText className="h-4 w-4 mr-2" />
+                      Upload SOP
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/posts")}>
+                      <Megaphone className="h-4 w-4 mr-2" />
+                      Post Update
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/channels")}>
+                      <Hash className="h-4 w-4 mr-2" />
+                      Create Channel
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Recommended Experts */}
+              <Card>
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-base">Recommended Experts</CardTitle>
+                  <CardDescription className="text-xs">Peer-to-peer skill discovery</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {experts.slice(0, 3).map((expert, index) => (
+                      <div key={index} className="space-y-2">
+                        <div className="flex items-start gap-3">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold text-xs shrink-0">
+                            {expert.avatar}
+                          </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-foreground truncate">{task.title}</p>
-                            <p className="text-xs text-muted-foreground">{task.type}</p>
+                            <p className="font-medium text-sm text-foreground truncate">{expert.name}</p>
+                            <p className="text-xs text-muted-foreground truncate">{expert.city} • {expert.department}</p>
+                            <div className="flex flex-wrap gap-1 mt-1">
+                              {expert.tags.map((tag, i) => (
+                                <Badge key={i} variant="secondary" className="text-[10px] py-0 px-1.5">
+                                  {tag}
+                                </Badge>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                        <Badge variant={task.urgent ? "destructive" : "secondary"} className="ml-2">
-                          {task.count}
-                        </Badge>
+                        <Button size="sm" variant="ghost" className="w-full h-7 text-xs">
+                          View Profile →
+                        </Button>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
+            </div>
 
-              {/* Important Announcement */}
-              <Card className="bg-primary/5 border-primary/20">
-                <CardContent className="p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 shrink-0">
-                      <announcement.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-foreground mb-1 text-base">{announcement.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{announcement.message}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Center Column - Activity Feed */}
+            <div className="lg:col-span-6 space-y-6">
+              {/* Activity Feed Header */}
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold text-foreground">Activity Feed</h2>
+                <Button variant="ghost" size="sm" className="text-xs">
+                  Filter +
+                </Button>
+              </div>
 
-              {/* Regional Activity Highlights */}
+              {/* Posts */}
+              <div className="space-y-4">
+                {posts.map((post) => (
+                  <Card key={post.id} className="hover:shadow-md transition-shadow">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold text-sm shrink-0">
+                          {post.avatar}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold text-foreground text-sm truncate">{post.author}</h3>
+                              <p className="text-xs text-muted-foreground truncate">{post.role}</p>
+                              <div className="flex items-center gap-2 mt-1">
+                                <Badge variant="secondary" className="text-[10px] py-0 px-1.5">
+                                  {post.department}
+                                </Badge>
+                                <span className="text-xs text-muted-foreground">• {post.time}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-4">
+                      <p className="text-sm text-foreground leading-relaxed">{post.content}</p>
+                      
+                      {post.image && (
+                        <img 
+                          src={post.image} 
+                          alt="Post content" 
+                          className="w-full h-64 object-cover rounded-lg"
+                        />
+                      )}
+
+                      {/* Engagement Stats */}
+                      <div className="flex items-center gap-4 pt-2 border-t border-border text-xs text-muted-foreground">
+                        <span>{post.likes} likes</span>
+                        <span>•</span>
+                        <span>{post.comments} comments</span>
+                        <span>•</span>
+                        <span>{post.shares} shares</span>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex items-center gap-2 pt-2 border-t border-border">
+                        <Button variant="ghost" size="sm" className="flex-1 h-9">
+                          <Star className="h-4 w-4 mr-2" />
+                          Like
+                        </Button>
+                        <Button variant="ghost" size="sm" className="flex-1 h-9">
+                          <MessageSquare className="h-4 w-4 mr-2" />
+                          Comment
+                        </Button>
+                        <Button variant="ghost" size="sm" className="flex-1 h-9">
+                          <ArrowRight className="h-4 w-4 mr-2" />
+                          Share
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Network Insights */}
               {viewMode === "regional" && (
-                <section>
-                  <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5 text-primary" />
-                    Regional Activity Highlights
-                  </h2>
-                  <div className="space-y-3">
-                    {regionalHighlights.map((highlight, index) => (
-                      <Card key={index} className="hover:shadow-md transition-shadow cursor-pointer">
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between gap-3">
-                            <div className="flex-1">
-                              <p className="font-medium text-foreground text-sm mb-1">{highlight.title}</p>
-                              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                                <Badge variant="outline" className="text-xs">{highlight.type}</Badge>
-                                <MapPin className="h-3 w-3" />
-                                <span>{highlight.city}</span>
-                                <Clock className="h-3 w-3 ml-1" />
-                                <span>{highlight.time}</span>
-                              </div>
-                            </div>
-                            <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0" />
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </section>
+                <Card>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <TrendingUp className="h-4 w-4 text-primary" />
+                      Network Insights
+                    </CardTitle>
+                    <CardDescription className="text-xs">Recently shared SOPs across connected cities</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs font-semibold text-muted-foreground mb-2">New SOPs Shared</p>
+                        <ul className="space-y-1 text-xs text-foreground">
+                          <li>• Cybersecurity Protocol – Seattle</li>
+                          <li>• Green Infrastructure Guide – Portland</li>
+                          <li>• HR Onboarding – Denver</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <p className="text-xs font-semibold text-muted-foreground mb-2">Trending Topics</p>
+                        <ul className="space-y-1 text-xs text-foreground">
+                          <li>• Climate Resilience</li>
+                          <li>• Mental Wellness</li>
+                          <li>• Remote Work Policies</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <Button variant="default" size="sm" className="w-full mt-4">
+                      View SOP Library
+                    </Button>
+                  </CardContent>
+                </Card>
               )}
-
-              {/* Organization Feed */}
-              <section>
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-foreground">
-                    {viewMode === "local" ? "Organization Feed" : "Regional Updates"}
-                  </h2>
-                  <Button variant="default" size="sm" onClick={() => navigate("/posts")}>
-                    View All
-                  </Button>
-                </div>
-
-                <div className="space-y-4">
-                  {posts.map((post) => (
-                    <Card key={post.id} className="hover:shadow-md transition-shadow">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start gap-3">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold text-sm shrink-0">
-                            {post.avatar}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-start justify-between gap-2">
-                              <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-foreground text-sm truncate">{post.author}</h3>
-                                <p className="text-xs text-muted-foreground truncate">{post.role} • {post.city}</p>
-                                <div className="flex items-center gap-2 mt-1">
-                                  <Badge variant="secondary" className="text-[10px] py-0 px-1.5">
-                                    {post.department}
-                                  </Badge>
-                                  <span className="text-xs text-muted-foreground">• {post.time}</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-0 space-y-4">
-                        <p className="text-sm text-foreground leading-relaxed">{post.content}</p>
-                        
-                        {post.image && (
-                          <img 
-                            src={post.image} 
-                            alt="Post content" 
-                            className="w-full h-64 object-cover rounded-lg"
-                          />
-                        )}
-
-                        {/* Engagement Stats */}
-                        <div className="flex items-center gap-4 pt-2 border-t border-border text-xs text-muted-foreground">
-                          <span>{post.likes} likes</span>
-                          <span>•</span>
-                          <span>{post.comments} comments</span>
-                          <span>•</span>
-                          <span>{post.shares} shares</span>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex items-center gap-2 pt-2 border-t border-border">
-                          <Button variant="ghost" size="sm" className="flex-1 h-9">
-                            <Star className="h-4 w-4 mr-2" />
-                            Like
-                          </Button>
-                          <Button variant="ghost" size="sm" className="flex-1 h-9">
-                            <MessageSquare className="h-4 w-4 mr-2" />
-                            Comment
-                          </Button>
-                          <Button variant="ghost" size="sm" className="flex-1 h-9">
-                            <ArrowRight className="h-4 w-4 mr-2" />
-                            Share
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </section>
             </div>
 
             {/* Right Column - Sidebar Widgets */}
-            <div className="space-y-6">
+            <div className="lg:col-span-3 space-y-6">
               {/* Upcoming Events */}
               <Card>
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
                     <div>
-                      <CardTitle className="text-lg">Upcoming Events</CardTitle>
+                      <CardTitle className="text-base">Upcoming Events</CardTitle>
                       <CardDescription className="text-xs">Regional & local sessions</CardDescription>
                     </div>
                     <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => navigate("/events")}>
@@ -440,22 +478,22 @@ const Index = () => {
                 <CardContent>
                   <div className="space-y-3">
                     <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
-                      <h4 className="font-medium text-sm text-foreground mb-1">Regional Emergency Response Training</h4>
+                      <h4 className="font-medium text-sm text-foreground mb-1">Regional Emergency Response</h4>
                       <p className="text-xs text-muted-foreground mb-2">Nov 25, 2025 • Springfield, IL • 45 attending</p>
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary" className="text-[10px]">training</Badge>
-                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => navigate("/events/1")}>
-                          Register →
+                        <Button size="sm" variant="ghost" className="h-7 text-xs p-0">
+                          Reg ster →
                         </Button>
                       </div>
                     </div>
                     
                     <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
-                      <h4 className="font-medium text-sm text-foreground mb-1">City Managers Quarterly Summit</h4>
-                      <p className="text-xs text-muted-foreground mb-2">Dec 2, 2025 • Virtual • 120 attending</p>
+                      <h4 className="font-medium text-sm text-foreground mb-1">City Managers Quarterly</h4>
+                      <p className="text-xs text-muted-foreground mb-2">Dec 2, 2025 • Virtual • 120 attending conference</p>
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary" className="text-[10px]">conference</Badge>
-                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => navigate("/events/2")}>
+                        <Button size="sm" variant="ghost" className="h-7 text-xs p-0">
                           Register →
                         </Button>
                       </div>
@@ -466,7 +504,7 @@ const Index = () => {
                       <p className="text-xs text-muted-foreground mb-2">Dec 10, 2025 • Chicago, IL • 32 attending</p>
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary" className="text-[10px]">workshop</Badge>
-                        <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => navigate("/events/3")}>
+                        <Button size="sm" variant="ghost" className="h-7 text-xs p-0">
                           Register →
                         </Button>
                       </div>
@@ -568,7 +606,7 @@ const Index = () => {
                     </div>
                     
                     <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer" onClick={() => navigate("/sop-library")}>
-                      <h4 className="font-medium text-sm text-foreground mb-1">Organization Outreach Guidelines</h4>
+                      <h4 className="font-medium text-sm text-foreground mb-1">Community Outreach Guidelines</h4>
                       <div className="flex items-center justify-between text-xs text-muted-foreground">
                         <span>Administration</span>
                         <span className="flex items-center gap-1">
@@ -581,104 +619,36 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              {/* Expertise Finder */}
+              {/* Sponsor Spotlight */}
               <Card>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <Lightbulb className="h-5 w-5 text-primary" />
-                    Find Experts
-                  </CardTitle>
-                  <CardDescription className="text-xs">Connect with specialists across cities</CardDescription>
+                  <CardTitle className="text-base">Sponsor Spotlight</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    {experts.map((expert, index) => (
-                      <div key={index} className="flex items-start gap-3 p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-semibold text-xs shrink-0">
-                          {expert.avatar}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-medium text-sm text-foreground truncate">{expert.name}</p>
-                          <p className="text-xs text-muted-foreground truncate">{expert.city} • {expert.department}</p>
-                          <div className="flex flex-wrap gap-1 mt-1">
-                            {expert.tags.map((tag, i) => (
-                              <Badge key={i} variant="secondary" className="text-[10px] py-0 px-1.5">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <Button size="sm" variant="outline" className="h-7 text-xs shrink-0">
-                          Connect
-                        </Button>
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+                      <div className="flex items-start justify-between mb-2">
+                        <h4 className="font-medium text-sm text-foreground">Regional Safety Partnership</h4>
+                        <Badge variant="secondary" className="text-[10px]">gold</Badge>
                       </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" size="sm" className="w-full mt-3 text-xs">
-                    View All Experts <ArrowRight className="h-3 w-3 ml-1" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Mutual Aid / Resource Registry */}
-              <Card className="border-primary/30 bg-primary/5">
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-base flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-primary" />
-                      Regional Resource Readiness
-                    </CardTitle>
-                    <Badge variant="outline" className="text-xs">Beta</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Available crews</span>
-                      <span className="font-semibold text-foreground">12 teams</span>
+                      <p className="text-xs text-muted-foreground mb-3">Equipment and safety gear programs 12 areas this week</p>
                     </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Specialized equipment</span>
-                      <span className="font-semibold text-foreground">8 units</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <AlertTriangle className="h-4 w-4 text-destructive" />
-                      <span className="text-destructive font-medium">Weather alert active</span>
-                    </div>
-                  </div>
-                  <Button variant="default" size="sm" className="w-full mt-4">
-                    Request Mutual Aid
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Recommended Channels & Committees */}
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <Hash className="h-4 w-4 text-primary" />
-                    Recommended for You
-                  </CardTitle>
-                  <CardDescription className="text-xs">Based on your expertise</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {recommendedChannels.map((channel, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
-                        <div className="flex-1 min-w-0">
-                          <p className="font-medium text-sm text-foreground truncate">{channel.name}</p>
-                          <div className="flex items-center gap-2 mt-1">
-                            <p className="text-xs text-muted-foreground">{channel.members} members</p>
-                            <Badge variant={channel.relevance === "High" ? "default" : "secondary"} className="text-[10px] py-0 px-1.5">
-                              {channel.relevance}
-                            </Badge>
-                          </div>
-                        </div>
-                        <Button size="sm" variant="ghost" className="h-7 text-xs shrink-0">
-                          Join
-                        </Button>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+                      <div className="flex items-start justify-between mb-2">
+                        <h4 className="font-medium text-sm text-foreground">TechCity Solutions</h4>
+                        <Badge variant="secondary" className="text-[10px]">silver</Badge>
                       </div>
-                    ))}
+                      <p className="text-xs text-muted-foreground mb-3">Digital infrastructure and IT support. 10 areas this week</p>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors">
+                      <div className="flex items-start justify-between mb-2">
+                        <h4 className="font-medium text-sm text-foreground">Municipal Training Institute</h4>
+                        <Badge variant="secondary" className="text-[10px]">gold</Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground mb-3">Leadership and skills development. 15 areas last week</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
