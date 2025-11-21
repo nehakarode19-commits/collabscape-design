@@ -160,8 +160,9 @@ const Index = () => {
                     <p className="text-[10px] text-muted-foreground">San Francisco</p>
                   </div>
                 </div>
-                <div className="hidden lg:block flex-1">
-                  <div className="relative">
+                <div className="hidden lg:flex items-center gap-4 flex-1">
+                  <img src={civiCircleLogo} alt="CiviCircle" className="h-10 w-10 object-contain" />
+                  <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       placeholder="Search posts, events, members..."
