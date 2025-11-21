@@ -154,14 +154,14 @@ const Index = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4 flex-1">
                 <div className="lg:hidden flex items-center gap-3">
-                  <img src={civiCircleLogo} alt="CiviCircle" className="h-8 w-8 object-contain" />
+                  <img src={civiCircleLogo} alt="CiviCircle" className="h-8 w-8 object-cover rounded-full" />
                   <div>
                     <h1 className="text-sm font-bold text-primary">CiviCircle</h1>
                     <p className="text-[10px] text-muted-foreground">San Francisco</p>
                   </div>
                 </div>
                 <div className="hidden lg:flex items-center gap-4 flex-1">
-                  <img src={civiCircleLogo} alt="CiviCircle" className="h-10 w-10 object-contain" />
+                  <img src={civiCircleLogo} alt="CiviCircle" className="h-10 w-10 object-cover rounded-full" />
                   <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
