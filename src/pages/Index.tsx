@@ -279,7 +279,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    {exploreCards.map((card) => (
+                    {exploreCards.filter(card => card.title !== "Messages").map((card) => (
                       <Button 
                         key={card.title}
                         variant="outline" 
