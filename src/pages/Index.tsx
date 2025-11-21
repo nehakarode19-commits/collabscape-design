@@ -23,6 +23,24 @@ const Index = () => {
       href: "/events",
     },
     {
+      title: "Directory",
+      description: "Find and connect with members in your organization",
+      icon: Users,
+      href: "/directory",
+    },
+    {
+      title: "SOP Library",
+      description: "Access standard operating procedures and documentation",
+      icon: FileText,
+      href: "/sop-library",
+    },
+    {
+      title: "Channels",
+      description: "Join channels and participate in group discussions",
+      icon: Hash,
+      href: "/channels",
+    },
+    {
       title: "Donations",
       description: "Support local causes and make a difference in your organization",
       icon: Heart,
@@ -35,34 +53,16 @@ const Index = () => {
       href: "/volunteering",
     },
     {
-      title: "Messages",
-      description: "Send messages and communicate with other members",
-      icon: MessageSquare,
-      href: "/messages",
-    },
-    {
-      title: "Channels",
-      description: "Join channels and participate in group discussions",
-      icon: Hash,
-      href: "/channels",
-    },
-    {
-      title: "SOP Library",
-      description: "Access standard operating procedures and documentation",
-      icon: FileText,
-      href: "/sop-library",
-    },
-    {
-      title: "Directory",
-      description: "Find and connect with members in your organization",
-      icon: Users,
-      href: "/directory",
-    },
-    {
       title: "Sponsorship",
       description: "Partner with us and help grow our organization initiatives",
       icon: Award,
       href: "/sponsorship",
+    },
+    {
+      title: "Messages",
+      description: "Send messages and communicate with other members",
+      icon: MessageSquare,
+      href: "/messages",
     },
   ];
 
