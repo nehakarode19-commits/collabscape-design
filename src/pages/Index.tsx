@@ -17,12 +17,6 @@ const Index = () => {
   const [viewMode, setViewMode] = useState<"local" | "regional">("local");
   const exploreCards = [
     {
-      title: "Events",
-      description: "Discover and attend organization events happening near you",
-      icon: Calendar,
-      href: "/events",
-    },
-    {
       title: "Donations",
       description: "Support local causes and make a difference in your organization",
       icon: Heart,
@@ -33,6 +27,30 @@ const Index = () => {
       description: "Find volunteer opportunities and give back to your city",
       icon: HandHeart,
       href: "/volunteering",
+    },
+    {
+      title: "Messages",
+      description: "Send messages and communicate with other members",
+      icon: MessageSquare,
+      href: "/messages",
+    },
+    {
+      title: "Channels",
+      description: "Join channels and participate in group discussions",
+      icon: Hash,
+      href: "/channels",
+    },
+    {
+      title: "SOP Library",
+      description: "Access standard operating procedures and documentation",
+      icon: FileText,
+      href: "/sop-library",
+    },
+    {
+      title: "Directory",
+      description: "Find and connect with members in your organization",
+      icon: Users,
+      href: "/directory",
     },
     {
       title: "Sponsorship",
@@ -140,12 +158,6 @@ const Index = () => {
 
         <nav className="flex-1 p-4 space-y-1">
           <MenuNavLink to="/" icon={Home} label="Home" />
-          <MenuNavLink to="/donations" icon={Heart} label="Donations" />
-          <MenuNavLink to="/volunteering" icon={HandHeart} label="Volunteering" />
-          <MenuNavLink to="/messages" icon={MessageSquare} label="Messages" />
-          <MenuNavLink to="/channels" icon={Hash} label="Channels" />
-          <MenuNavLink to="/sop-library" icon={FileText} label="SOP Library" />
-          <MenuNavLink to="/directory" icon={Users} label="Directory" />
         </nav>
 
         <div className="p-4 space-y-1 border-t border-sidebar-border">
@@ -346,6 +358,27 @@ const Index = () => {
 
             {/* Center Column - Activity Feed */}
             <div className="lg:col-span-6 space-y-6">
+              {/* Quick Access Section */}
+              <section>
+                <h2 className="text-xl font-bold text-foreground mb-4">Quick Access</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {exploreCards.map((card) => (
+                    <Card
+                      key={card.title}
+                      className="cursor-pointer hover:shadow-md transition-all group"
+                      onClick={() => navigate(card.href)}
+                    >
+                      <CardHeader className="pb-2 pt-4">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 mb-2 group-hover:bg-primary/20 transition-colors">
+                          <card.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <CardTitle className="text-sm">{card.title}</CardTitle>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+
               {/* Activity Feed Header */}
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold text-foreground">Activity Feed</h2>
