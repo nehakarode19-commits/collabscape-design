@@ -140,8 +140,6 @@ const Index = () => {
 
         <nav className="flex-1 p-4 space-y-1">
           <MenuNavLink to="/" icon={Home} label="Home" />
-          <MenuNavLink to="/posts" icon={BookOpen} label="Posts" />
-          <MenuNavLink to="/events" icon={Calendar} label="Events" />
           <MenuNavLink to="/donations" icon={Heart} label="Donations" />
           <MenuNavLink to="/volunteering" icon={HandHeart} label="Volunteering" />
           <MenuNavLink to="/messages" icon={MessageSquare} label="Messages" />
@@ -659,7 +657,7 @@ const Index = () => {
 
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-card lg:hidden">
-        <div className="grid grid-cols-5 gap-1 p-2">
+        <div className="grid grid-cols-3 gap-1 p-2">
           <Button
             variant="ghost"
             size="sm"
@@ -668,24 +666,6 @@ const Index = () => {
           >
             <Home className="h-5 w-5 text-primary" />
             <span className="text-[10px] text-primary font-medium">Home</span>
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="flex flex-col gap-1 h-auto py-2"
-            onClick={() => navigate("/posts")}
-          >
-            <BookOpen className="h-5 w-5" />
-            <span className="text-[10px]">Posts</span>
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="flex flex-col gap-1 h-auto py-2"
-            onClick={() => navigate("/events")}
-          >
-            <Calendar className="h-5 w-5" />
-            <span className="text-[10px]">Events</span>
           </Button>
           <Button
             variant="ghost"
