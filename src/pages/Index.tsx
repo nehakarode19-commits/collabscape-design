@@ -279,26 +279,22 @@ const Index = () => {
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-base">Quick Access</CardTitle>
-                  <CardDescription className="text-xs">Create posts, events, SOPs, or post updates</CardDescription>
+                  <CardDescription className="text-xs">Access all member features and resources</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/events")}>
-                      <Calendar className="h-4 w-4 mr-2" />
-                      Create Event
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/sop-library")}>
-                      <FileText className="h-4 w-4 mr-2" />
-                      Upload SOP
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/posts")}>
-                      <Megaphone className="h-4 w-4 mr-2" />
-                      Post Update
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start" size="sm" onClick={() => navigate("/channels")}>
-                      <Hash className="h-4 w-4 mr-2" />
-                      Create Channel
-                    </Button>
+                    {exploreCards.map((card) => (
+                      <Button 
+                        key={card.title}
+                        variant="outline" 
+                        className="w-full justify-start" 
+                        size="sm" 
+                        onClick={() => navigate(card.href)}
+                      >
+                        <card.icon className="h-4 w-4 mr-2" />
+                        {card.title}
+                      </Button>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -341,27 +337,6 @@ const Index = () => {
 
             {/* Center Column - Activity Feed */}
             <div className="lg:col-span-6 space-y-6">
-              {/* Member Access Section */}
-              <section>
-                <h2 className="text-xl font-bold text-foreground mb-4">Member Access</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {exploreCards.map((card) => (
-                    <Card
-                      key={card.title}
-                      className="cursor-pointer hover:shadow-md transition-all group"
-                      onClick={() => navigate(card.href)}
-                    >
-                      <CardHeader className="pb-2 pt-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 mb-2 group-hover:bg-primary/20 transition-colors">
-                          <card.icon className="h-5 w-5 text-primary" />
-                        </div>
-                        <CardTitle className="text-sm">{card.title}</CardTitle>
-                      </CardHeader>
-                    </Card>
-                  ))}
-                </div>
-              </section>
-
               {/* Activity Feed Header */}
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold text-foreground">Activity Feed</h2>
