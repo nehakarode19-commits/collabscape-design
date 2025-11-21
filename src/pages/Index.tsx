@@ -17,6 +17,12 @@ const Index = () => {
   const [viewMode, setViewMode] = useState<"local" | "regional">("local");
   const exploreCards = [
     {
+      title: "Events",
+      description: "Discover and join organization events and activities",
+      icon: Calendar,
+      href: "/events",
+    },
+    {
       title: "Donations",
       description: "Support local causes and make a difference in your organization",
       icon: Heart,
