@@ -146,28 +146,8 @@ const Index = () => {
 
   return (
     <div className="flex min-h-screen bg-background">
-      {/* Left Sidebar Navigation */}
-      <aside className="hidden lg:flex lg:w-64 lg:flex-col lg:fixed lg:inset-y-0 bg-sidebar border-r border-sidebar-border">
-        <div className="flex items-center gap-3 p-6 border-b border-sidebar-border">
-          <img src={civiCircleLogo} alt="CiviCircle" className="h-10 w-10 rounded-lg object-contain" />
-          <div>
-            <h1 className="text-base font-bold text-primary">CiviCircle</h1>
-            <p className="text-xs text-muted-foreground">San Francisco</p>
-          </div>
-        </div>
-
-        <nav className="flex-1 p-4 space-y-1">
-          <MenuNavLink to="/" icon={Home} label="Home" />
-        </nav>
-
-        <div className="p-4 space-y-1 border-t border-sidebar-border">
-          <MenuNavLink to="/profile" icon={User} label="Profile" />
-          <MenuNavLink to="/settings" icon={Settings} label="Settings" />
-        </div>
-      </aside>
-
       {/* Main Content */}
-      <div className="flex-1 lg:pl-64">
+      <div className="flex-1">
         {/* Top Header */}
         <header className="sticky top-0 z-40 bg-card border-b border-border">
           <div className="px-6 py-4">
