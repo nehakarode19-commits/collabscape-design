@@ -4,11 +4,44 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Settings = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        toast({
+          title: "Error",
+          description: "Failed to log out. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Logged out",
+          description: "You've been successfully logged out.",
+        });
+        navigate("/auth");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -115,10 +148,26 @@ const Settings = () => {
           {/* Account Actions */}
           <Card className="border-destructive/50">
             <CardHeader>
-              <CardTitle className="text-destructive">Danger Zone</CardTitle>
-              <CardDescription>Irreversible account actions</CardDescription>
+              <CardTitle className="text-destructive">Account Actions</CardTitle>
+              <CardDescription>Manage your account</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Sign Out</Label>
+                  <p className="text-sm text-muted-foreground">Log out of your account</p>
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={handleLogout}
+                  disabled={isLoggingOut}
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  {isLoggingOut ? "Logging out..." : "Logout"}
+                </Button>
+              </div>
+              <Separator />
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
                   <Label>Deactivate Account</Label>
