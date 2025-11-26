@@ -31,7 +31,6 @@ interface EventData {
 const EventTickets = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [selectedTier, setSelectedTier] = useState<string | null>(null);
 
   // Mock data - replace with actual API call
   const eventData: EventData = {
@@ -98,12 +97,7 @@ const EventTickets = () => {
     return tier.registered < tier.capacity && isRegistrationOpen();
   };
 
-  const handleTierSelect = (tierId: string) => {
-    setSelectedTier(selectedTier === tierId ? null : tierId);
-  };
-
-  const handlePayNow = (tier: Tier, e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handlePayNow = (tier: Tier) => {
     if (!isTierAvailable(tier)) return;
     navigate(`/events/${id}/payment/${tier.id}`);
   };
@@ -179,20 +173,14 @@ const EventTickets = () => {
           {eventData.tiers.map((tier) => {
             const available = isTierAvailable(tier);
             const soldOut = tier.registered >= tier.capacity;
-            const isExpanded = selectedTier === tier.id;
             const slotsRemaining = tier.capacity - tier.registered;
 
             return (
               <Card
                 key={tier.id}
                 className={`relative transition-all ${
-                  isExpanded
-                    ? "ring-2 ring-primary shadow-lg"
-                    : available
-                    ? "hover:shadow-md cursor-pointer"
-                    : "opacity-60"
+                  available ? "hover:shadow-md" : "opacity-60"
                 }`}
-                onClick={() => available && handleTierSelect(tier.id)}
               >
                 {soldOut && (
                   <Badge className="absolute top-3 right-3 bg-destructive">Sold Out</Badge>
@@ -245,34 +233,25 @@ const EventTickets = () => {
                   <div>
                     <h4 className="text-sm font-semibold mb-2">Benefits</h4>
                     <ul className="space-y-2">
-                      {tier.benefits
-                        .slice(0, isExpanded ? undefined : 3)
-                        .map((benefit, index) => (
-                          <li key={index} className="flex items-start gap-2 text-sm">
-                            <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                            <span className="text-muted-foreground">{benefit.text}</span>
-                          </li>
-                        ))}
+                      {tier.benefits.map((benefit, index) => (
+                        <li key={index} className="flex items-start gap-2 text-sm">
+                          <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground">{benefit.text}</span>
+                        </li>
+                      ))}
                     </ul>
-                    {!isExpanded && tier.benefits.length > 3 && (
-                      <p className="text-xs text-muted-foreground mt-2">
-                        +{tier.benefits.length - 3} more benefits
-                      </p>
-                    )}
                   </div>
                 </CardContent>
 
-                {isExpanded && (
-                  <CardFooter>
-                    <Button
-                      className="w-full"
-                      disabled={!available}
-                      onClick={(e) => handlePayNow(tier, e)}
-                    >
-                      {soldOut ? "Sold Out" : available ? "Pay Now" : "Registration Closed"}
-                    </Button>
-                  </CardFooter>
-                )}
+                <CardFooter>
+                  <Button
+                    className="w-full"
+                    disabled={!available}
+                    onClick={() => handlePayNow(tier)}
+                  >
+                    {soldOut ? "Sold Out" : available ? "Pay Now" : "Registration Closed"}
+                  </Button>
+                </CardFooter>
               </Card>
             );
           })}
