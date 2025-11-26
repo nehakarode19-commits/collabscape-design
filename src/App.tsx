@@ -11,6 +11,7 @@ import Channels from "./pages/Channels";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import EventTickets from "./pages/EventTickets";
+import EventPayment from "./pages/EventPayment";
 import Donations from "./pages/Donations";
 import DonationDetail from "./pages/DonationDetail";
 import Volunteering from "./pages/Volunteering";
@@ -43,7 +44,8 @@ const App = () => (
           <Route path="/organizations/:id" element={<OrganizationDetail />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<EventDetail />} />
-        <Route path="/events/:id/tickets" element={<EventTickets />} />
+          <Route path="/events/:id/tickets" element={<EventTickets />} />
+          <Route path="/events/:id/payment/:tierId" element={<EventPayment />} />
           <Route path="/donations" element={<Donations />} />
           <Route path="/donations/:id" element={<DonationDetail />} />
           <Route path="/volunteering" element={<Volunteering />} />

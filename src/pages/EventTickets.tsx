@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Calendar, Check, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, Calendar, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +31,7 @@ interface EventData {
 const EventTickets = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [expandedTiers, setExpandedTiers] = useState<Set<string>>(new Set());
+  const [selectedTier, setSelectedTier] = useState<string | null>(null);
 
   // Mock data - replace with actual API call
   const eventData: EventData = {
@@ -98,22 +98,14 @@ const EventTickets = () => {
     return tier.registered < tier.capacity && isRegistrationOpen();
   };
 
-  const toggleBenefits = (tierId: string) => {
-    setExpandedTiers((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(tierId)) {
-        newSet.delete(tierId);
-      } else {
-        newSet.add(tierId);
-      }
-      return newSet;
-    });
+  const handleTierSelect = (tierId: string) => {
+    setSelectedTier(selectedTier === tierId ? null : tierId);
   };
 
-  const handleTierSelect = (tier: Tier) => {
+  const handlePayNow = (tier: Tier, e: React.MouseEvent) => {
+    e.stopPropagation();
     if (!isTierAvailable(tier)) return;
-    // Navigate to checkout/registration form
-    navigate(`/events/${id}/register/${tier.id}`);
+    navigate(`/events/${id}/payment/${tier.id}`);
   };
 
   const formatDate = (date: Date) => {
@@ -187,18 +179,20 @@ const EventTickets = () => {
           {eventData.tiers.map((tier) => {
             const available = isTierAvailable(tier);
             const soldOut = tier.registered >= tier.capacity;
-            const isExpanded = expandedTiers.has(tier.id);
+            const isExpanded = selectedTier === tier.id;
             const slotsRemaining = tier.capacity - tier.registered;
 
             return (
               <Card
                 key={tier.id}
                 className={`relative transition-all ${
-                  available
-                    ? "hover:shadow-lg hover:scale-105 cursor-pointer border-primary/20"
+                  isExpanded
+                    ? "ring-2 ring-primary shadow-lg"
+                    : available
+                    ? "hover:shadow-md cursor-pointer"
                     : "opacity-60"
                 }`}
-                onClick={() => handleTierSelect(tier)}
+                onClick={() => available && handleTierSelect(tier.id)}
               >
                 {soldOut && (
                   <Badge className="absolute top-3 right-3 bg-destructive">Sold Out</Badge>
@@ -249,26 +243,7 @@ const EventTickets = () => {
 
                   {/* Benefits */}
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-sm font-semibold">Benefits</h4>
-                      {tier.benefits.length > 3 && (
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-6 px-2"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleBenefits(tier.id);
-                          }}
-                        >
-                          {isExpanded ? (
-                            <ChevronUp className="h-3 w-3" />
-                          ) : (
-                            <ChevronDown className="h-3 w-3" />
-                          )}
-                        </Button>
-                      )}
-                    </div>
+                    <h4 className="text-sm font-semibold mb-2">Benefits</h4>
                     <ul className="space-y-2">
                       {tier.benefits
                         .slice(0, isExpanded ? undefined : 3)
@@ -287,15 +262,17 @@ const EventTickets = () => {
                   </div>
                 </CardContent>
 
-                <CardFooter>
-                  <Button
-                    className="w-full"
-                    disabled={!available}
-                    onClick={() => handleTierSelect(tier)}
-                  >
-                    {soldOut ? "Sold Out" : available ? "Select Tier" : "Registration Closed"}
-                  </Button>
-                </CardFooter>
+                {isExpanded && (
+                  <CardFooter>
+                    <Button
+                      className="w-full"
+                      disabled={!available}
+                      onClick={(e) => handlePayNow(tier, e)}
+                    >
+                      {soldOut ? "Sold Out" : available ? "Pay Now" : "Registration Closed"}
+                    </Button>
+                  </CardFooter>
+                )}
               </Card>
             );
           })}
