@@ -163,7 +163,7 @@ const EventDetail = () => {
                   </Card>
 
                   <div className="flex items-center gap-3 pt-4">
-                    <Button className="flex-1" size="lg">Buy Ticket</Button>
+                    <Button className="flex-1" size="lg" onClick={() => navigate(`/events/${id}/tickets`)}>Buy Ticket</Button>
                     <Button size="icon" variant="outline">
                       <Share2 className="h-5 w-5" />
                     </Button>
