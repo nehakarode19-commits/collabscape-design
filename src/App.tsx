@@ -10,6 +10,7 @@ import OrganizationDetail from "./pages/OrganizationDetail";
 import Channels from "./pages/Channels";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
+import EventTickets from "./pages/EventTickets";
 import Donations from "./pages/Donations";
 import DonationDetail from "./pages/DonationDetail";
 import Volunteering from "./pages/Volunteering";
@@ -40,8 +41,9 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/organizations" element={<Organizations />} />
           <Route path="/organizations/:id" element={<OrganizationDetail />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/:id" element={<EventDetail />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/events/:id" element={<EventDetail />} />
+        <Route path="/events/:id/tickets" element={<EventTickets />} />
           <Route path="/donations" element={<Donations />} />
           <Route path="/donations/:id" element={<DonationDetail />} />
           <Route path="/volunteering" element={<Volunteering />} />
