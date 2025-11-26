@@ -35,8 +35,8 @@ const EventTickets = () => {
   // Mock data - replace with actual API call
   const eventData: EventData = {
     name: "Tech Innovation Summit",
-    registrationStart: new Date("2024-01-15"),
-    registrationEnd: new Date("2024-02-28"),
+    registrationStart: new Date("2025-01-01"),
+    registrationEnd: new Date("2025-12-31"),
     tiers: [
       {
         id: "vip",
