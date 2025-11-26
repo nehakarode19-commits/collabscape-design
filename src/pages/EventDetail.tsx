@@ -68,18 +68,23 @@ const EventDetail = () => {
                 <div>
                   <h3 className="font-bold text-foreground mb-2">ABOUT US</h3>
                   <p className="text-sm text-muted-foreground mb-3">
-                    Bangalore, Karnataka, Is Not Just A Bustling Tech Hub; It&apos;s Also Home To A Vibrant Organization Of Artists And Innovators.
+                    New York City is not just a bustling metropolis; it&apos;s also home to a vibrant community of innovators, civic leaders, and changemakers dedicated to building a better future for all.
                   </p>
                   <Button className="w-full" variant="secondary">Interested</Button>
                 </div>
 
                 <div>
                   <h3 className="font-bold text-foreground mb-3">Location</h3>
-                  <div className="w-full h-40 bg-muted rounded-lg overflow-hidden">
-                    <img 
-                      src="/placeholder.svg" 
-                      alt="Map" 
-                      className="w-full h-full object-cover opacity-50"
+                  <div className="w-full h-40 bg-muted rounded-lg overflow-hidden relative">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6174427692567!2d-73.96577868459395!3d40.76438997932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258ebe8836a89%3A0xd4f06a6b7a0b6e0e!2sCentral%20Park!5e0!3m2!1sen!2sus!4v1234567890123"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Event Location"
                     />
                   </div>
                 </div>
