@@ -28,7 +28,7 @@ const EventPayment = () => {
   const eventData = {
     name: "Tech Innovation Summit",
     date: new Date("2024-03-15"),
-    location: "San Francisco Convention Center",
+    location: "San Francisco Convention Center, 747 Howard St, San Francisco, CA 94103, USA",
   };
 
   const tierData: TierData = {
