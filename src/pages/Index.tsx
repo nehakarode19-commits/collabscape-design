@@ -250,25 +250,14 @@ const Index = () => {
                   <p className="text-xs text-muted-foreground mb-4">Emergency Services Director</p>
                   
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-muted/50">
-                      <p className="text-xs text-muted-foreground mb-1">Regional Connections</p>
-                      <p className="text-lg font-bold text-foreground">124</p>
-                    </div>
+                  <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 rounded-lg bg-muted/50">
                       <p className="text-xs text-muted-foreground mb-1">Committees</p>
                       <p className="text-lg font-bold text-foreground">3</p>
                     </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 rounded-lg bg-muted/50">
                       <p className="text-xs text-muted-foreground mb-1">SOPs Owned</p>
                       <p className="text-lg font-bold text-foreground">8</p>
-                    </div>
-                    <div className="p-3 rounded-lg bg-muted/50">
-                      <p className="text-xs text-muted-foreground mb-1">Compliance</p>
-                      <p className="text-lg font-bold text-foreground">92%</p>
                     </div>
                   </div>
                   
